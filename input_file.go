@@ -65,6 +65,7 @@ type fileInputReader struct {
 	readDepth int
 	dryRun    bool
 	path      string
+	stats     *expvar.Map
 }
 
 func (f *fileInputReader) parse(init chan struct{}) error {
@@ -97,7 +98,18 @@ func (f *fileInputReader) parse(init chan struct{}) error {
 			asBytes := buffer.Bytes()
 			meta := payloadMeta(asBytes)
 
+			malformed := false
 			if len(meta) < 3 {
+				malformed = true
+			} else {
+				if len(meta[0]) != 1 || len(meta[1]) != 24 || len(meta[2]) != 19 {
+					malformed = true
+				}
+			}
+
+			if malformed {
+				f.stats.Add("malformed", 1)
+
 				Debug(1, fmt.Sprintf("Found malformed record, file: %s, line %d", f.path, lineNum))
 				buffer = bytes.Buffer{}
 				continue
@@ -164,7 +176,7 @@ func (f *fileInputReader) Close() error {
 	return nil
 }
 
-func newFileInputReader(path string, readDepth int, dryRun bool) *fileInputReader {
+func newFileInputReader(path string, readDepth int, stats *expvar.Map, dryRun bool) *fileInputReader {
 	var file io.ReadCloser
 	var err error
 
@@ -179,7 +191,7 @@ func newFileInputReader(path string, readDepth int, dryRun bool) *fileInputReade
 		return nil
 	}
 
-	r := &fileInputReader{path: path, file: file, closed: 0, readDepth: readDepth, dryRun: dryRun}
+	r := &fileInputReader{path: path, file: file, closed: 0, readDepth: readDepth, stats: stats, dryRun: dryRun}
 	if strings.HasSuffix(path, ".gz") {
 		gzReader, err := gzip.NewReader(file)
 		if err != nil {
@@ -277,7 +289,7 @@ func (i *FileInput) init() (err error) {
 	i.readers = make([]*fileInputReader, len(matches))
 
 	for idx, p := range matches {
-		i.readers[idx] = newFileInputReader(p, i.readDepth, i.dryRun)
+		i.readers[idx] = newFileInputReader(p, i.readDepth, i.stats, i.dryRun)
 	}
 
 	i.stats.Add("reader_count", int64(len(matches)))
@@ -413,8 +425,9 @@ func (i *FileInput) emit() {
 	Debug(0, fmt.Sprintf("[INPUT-FILE] FileInput: end of file '%s'\n", i.path))
 
 	if i.dryRun {
-		fmt.Printf("Records found: %v\nFiles processed: %v\nBytes processed: %v\nMax wait: %v\nMin wait: %v\nFirst wait: %v\nIt will take `%v` to replay at current speed.\nFound %v records with out of order timestamp\n",
+		fmt.Printf("Records found: %v\nMalformed records: %v\nFiles processed: %v\nBytes processed: %v\nMax wait: %v\nMin wait: %v\nFirst wait: %v\nIt will take `%v` to replay at current speed.\nFound %v records with out of order timestamp\n",
 			i.stats.Get("total_counter"),
+			i.stats.Get("malformed"),
 			i.stats.Get("reader_count"),
 			i.stats.Get("total_bytes"),
 			i.stats.Get("max_wait"),
