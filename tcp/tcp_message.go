@@ -63,9 +63,10 @@ type Stats struct {
 
 // Message is the representation of a tcp message
 type Message struct {
-	packets  []*Packet
-	parser   *MessageParser
-	feedback interface{}
+	packets          []*Packet
+	parser           *MessageParser
+	feedback         interface{}
+	continueAdjusted bool
 	Stats
 }
 
@@ -363,7 +364,8 @@ func (parser *MessageParser) addPacket(m *Message, pckt *Packet) bool {
 }
 
 func (parser *MessageParser) Fix100Continue(m *Message) {
-	if state, ok := m.feedback.(*proto.HTTPState); ok && state.Continue100 {
+	// Only adjust a message once
+	if state, ok := m.feedback.(*proto.HTTPState); ok && state.Continue100 && !m.continueAdjusted {
 		delete(parser.m, m.packets[0].MessageID())
 
 		// Shift Ack by given offset
@@ -382,6 +384,7 @@ func (parser *MessageParser) Fix100Continue(m *Message) {
 
 		// Re-add (or override) again with new message and ID
 		parser.m[m.packets[0].MessageID()] = m
+		m.continueAdjusted = true
 	}
 }
 
@@ -410,7 +413,7 @@ func (parser *MessageParser) timer(now time.Time) {
 	packetQueueLen.Set(int64(len(parser.packets)))
 	messageQueueLen.Set(int64(len(parser.m)))
 
-	for _, m := range parser.m {
+	for id, m := range parser.m {
 		if now.Sub(m.End) > parser.messageExpire {
 			m.TimedOut = true
 			stats.Add("message_timeout_count", 1)
@@ -419,7 +422,7 @@ func (parser *MessageParser) timer(now time.Time) {
 				parser.Emit(m)
 			}
 
-			delete(parser.m, m.packets[0].MessageID())
+			delete(parser.m, id)
 		}
 	}
 }
