@@ -59,6 +59,7 @@ type PcapOptions struct {
 	RealIPHeader    string          `json:"input-raw-realip-header"`
 	Stats           bool            `json:"input-raw-stats"`
 	AllowIncomplete bool            `json:"input-raw-allow-incomplete"`
+	IgnoreInterface []string        `json:"input-raw-ignore-interface"`
 	Transport       string
 }
 
@@ -598,6 +599,18 @@ func (l *Listener) setInterfaces() (err error) {
 	}
 
 	for _, pi := range pifis {
+		ignore := false
+		for _, ig := range l.config.IgnoreInterface {
+			if pi.Name == ig {
+				ignore = true
+				break
+			}
+		}
+
+		if ignore {
+			continue
+		}
+
 		if isDevice(l.host, pi) {
 			l.Interfaces = []pcap.Interface{pi}
 			return
