@@ -713,6 +713,12 @@ func isDevice(addr string, ifi pcap.Interface) bool {
 		return true
 	}
 
+	if strings.HasSuffix(addr, "*") {
+		if strings.HasPrefix(ifi.Name, addr[:len(addr)-1]) {
+			return true
+		}
+	}
+
 	for _, _addr := range ifi.Addresses {
 		if _addr.IP.String() == addr {
 			return true
