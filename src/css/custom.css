@@ -1,0 +1,234 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #4B8FE2;
+  --ifm-color-primary-dark: rgb(33, 175, 144);
+  --ifm-color-primary-darker: rgb(31, 165, 136);
+  --ifm-color-primary-darkest: rgb(26, 136, 112);
+  --ifm-color-primary-light: rgb(70, 203, 174);
+  --ifm-color-primary-lighter: rgb(102, 212, 189);
+  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-code-font-size: 95%;
+
+  --ifm-navbar-padding-horizontal: calc(var(--ifm-spacing-horizontal) * 1.5);
+  --ifm-navbar-padding-vertical: calc(var(--ifm-spacing-vertical) * 0.5);
+
+
+  --ifm-navbar-height: 5rem;
+
+  --docusaurus-announcement-bar-height: 5rem;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.navbar__link {
+    padding-right: calc(var(--ifm-navbar-item-padding-horizontal) + 1.1rem);
+}
+
+.navbar .nav__doc {
+  order: 1;
+  margin-left: calc(var(--ifm-navbar-item-padding-horizontal) + 1.1rem); 
+  padding: calc(var(--ifm-navbar-item-padding-vertical) + 0.3rem) var(--ifm-navbar-item-padding-horizontal);
+ 
+  background-color: #4A90E2;
+  color: white !important;
+  font-size: 1rem;
+}
+
+.navbar .nav__doc:visited {
+    color: var(--ifm-color-primary-lightest);
+}
+
+
+.fade-enter{
+   opacity: 0;
+}
+.fade-exit{
+   opacity: 1;
+}
+.fade-enter-active{
+   opacity: 1;
+}
+.fade-exit-active{
+   opacity: 0;
+}
+.fade-enter-active,
+.fade-exit-active{
+   transition: opacity 500ms;
+}
+
+.button--lg img {
+  vertical-align: sub;
+  margin-right: 0.5rem;
+}
+
+.button--lg + .button--lg {
+  margin-left: 1rem;
+}
+
+
+
+@media screen and (max-width: 966px) {
+  .snippet {
+    margin-left: -1.1rem;
+  }
+}
+
+.announcementBar_node_modules-\@docusaurus-theme-classic-lib-next-theme-AnnouncementBar-styles-module {
+  height: 2.5rem !important;
+}
+
+.announcementBarContent_node_modules-\@docusaurus-theme-classic-lib-next-theme-AnnouncementBar-styles-module {
+  font-size: var(--font-size-small) !important;
+}
+
+.hero .button {
+  font-weight: normal;
+}
+
+.logos {
+  align-items: center;
+  display: flex;
+  justify-content: space-around; 
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.logos img {
+  max-height: 4rem;
+  max-width: 6rem;
+  filter: grayscale(1);
+  margin-top: 2rem;
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+.browserWindow_src-components-BrowserWindow-styles-module .codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-next-theme-CodeBlock-styles-module {
+  margin-bottom: 0 !important;
+}
+
+.browserWindow_src-components-BrowserWindow-styles-module {
+  margin-left: 1rem;
+}
+
+.case-study-hero {
+  padding-bottom: 4rem;
+}
+
+.case-study-hero h3 {
+  text-align: center;
+  font-size: 140%;
+}
+
+.case-study-hero img {
+  /*max-width: fit-content;*/
+  /*padding-right: 1rem;*/
+  float: left;
+  margin-right: 1rem;
+}
+
+.case-study-hero img.wide {
+  max-width: 200px;
+  float: none;
+}
+
+.case-study-hero address {
+  font-weight: 400;
+  font-size: 120%;
+}
+
+.case-study-hero blockquote {
+  border-color: #4B8FE2;
+  background-color: #bcdbff;
+  font-size: 130%;
+  font-style: italic;
+  font-weight: 300;
+  /*height: 12rem;*/
+}
+
+.case-study-hero > div {
+  /*display: inline-block;*/
+  /*width: auto;*/
+}
+
+.case-study-hero .dots {
+  font-size: 200%;
+  text-align: center;
+}
+
+.case-study-hero .dots span {
+  padding: 0.5rem;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.case-study-hero .dots span.active {
+  opacity: 1;
+}
+
+.font-bigger {
+  font-size: 140%;
+}
+
+.font-bigger h2 {
+  font-size: 140%;
+}
+
+.oss {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.oss .col div {
+  padding: 2rem 4rem;
+  border-radius: 1rem;
+  margin: 1rem;
+  height: 22rem;
+}
+
+.oss .col:last-child a {
+  font-weight:  bold;
+  text-decoration: underline;
+  font-size: 120%;
+}
+
+.oss .col:first-child div {
+    background-color: #4B8FE2;
+    color: white;
+}
+
+.oss .col:last-child div {
+  border: 2px solid #4B8FE2;
+}
+
+.oss .col:first-child a {
+  color: white;
+  font-weight:  bold;
+  text-decoration: underline;
+  font-size: 120%;
+}
+
+.oss .col h2 {
+  font-size: 200%;
+}
+
+.oss .col li {
+  font-size: 120%;
+}
