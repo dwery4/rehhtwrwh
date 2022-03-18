@@ -1,0 +1,1067 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "loadedVersions": [
+        {
+          "versionName": "current",
+          "versionLabel": "Next",
+          "versionPath": "/docs",
+          "versionEditUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs",
+          "versionEditUrlLocalized": "https://github.com/buger/goreplay-website/edit/master/website/i18n/en/docusaurus-plugin-content-docs/current",
+          "versionBanner": "none",
+          "isLast": true,
+          "routePriority": -1,
+          "sidebarFilePath": "/Users/leonidbugaev/go/src/goreplay/sidebars.js",
+          "contentPath": "/Users/leonidbugaev/go/src/goreplay/docs",
+          "contentPathLocalized": "/Users/leonidbugaev/go/src/goreplay/i18n/en/docusaurus-plugin-content-docs/current",
+          "mainDocId": "intro",
+          "sidebars": {
+            "tutorialSidebar": [
+              {
+                "type": "doc",
+                "id": "intro"
+              },
+              {
+                "type": "category",
+                "label": "Concepts",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "concepts/architecture"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "concepts/integration-testing"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "concepts/load-testing"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "concepts/monitoring"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Installation",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "installation/binaries"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "installation/docker"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "installation/macos"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Reference",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "reference/cli"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "reference/elasticsearch"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "reference/file"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "reference/filter"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "reference/http"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "reference/kafka"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "reference/limiter"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "reference/middleware"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "reference/rewrite"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Tutorial - Basics",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "tutorial/getting-started"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "GoReplay PRO",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "pro/getting-started"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "pro/accurate-tcp-sessions"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "pro/appliance-license"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "pro/custom-protocols"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "pro/s3"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              },
+              {
+                "type": "category",
+                "label": "Guides",
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "guides/compilation"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "guides/development"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "guides/distributed-configuration"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "guides/missing-requests"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "guides/network-capture"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "guides/running-without-root-permissions"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true
+              }
+            ]
+          },
+          "docs": [
+            {
+              "unversionedId": "concepts/architecture",
+              "id": "concepts/architecture",
+              "isDocsHomePage": false,
+              "title": "Architecture",
+              "description": "Gor architecture tries to follow UNIX philosophy: everything made of pipes - various inputs multiplexing data to outputs. It is possible to have multiple inputs and outputs.",
+              "source": "@site/docs/concepts/architecture.md",
+              "sourceDirName": "concepts",
+              "slug": "/concepts/architecture",
+              "permalink": "/docs/concepts/architecture",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/concepts/architecture.md",
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Introduction",
+                "permalink": "/docs/intro"
+              },
+              "next": {
+                "title": "Integration testing",
+                "permalink": "/docs/concepts/integration-testing"
+              }
+            },
+            {
+              "unversionedId": "concepts/integration-testing",
+              "id": "concepts/integration-testing",
+              "isDocsHomePage": false,
+              "title": "Integration testing",
+              "description": "GoReplay use shadowing technique, also known as mirroring, or dark traffic testing.",
+              "source": "@site/docs/concepts/integration-testing.md",
+              "sourceDirName": "concepts",
+              "slug": "/concepts/integration-testing",
+              "permalink": "/docs/concepts/integration-testing",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/concepts/integration-testing.md",
+              "version": "current",
+              "sidebarPosition": 2,
+              "frontMatter": {
+                "sidebar_position": 2
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Architecture",
+                "permalink": "/docs/concepts/architecture"
+              },
+              "next": {
+                "title": "Load testing",
+                "permalink": "/docs/concepts/load-testing"
+              }
+            },
+            {
+              "unversionedId": "concepts/load-testing",
+              "id": "concepts/load-testing",
+              "isDocsHomePage": false,
+              "title": "Load testing",
+              "description": "Writing synthetic tests is difficult, and it's almost impossible to truly replicate production traffic patterns. Humans, browsers, and robots all do strange things that affect the frequency of requests, URL weighting, size of headers, session persistance and way more. In some cases only specific user flow can show performance issues.",
+              "source": "@site/docs/concepts/load-testing.md",
+              "sourceDirName": "concepts",
+              "slug": "/concepts/load-testing",
+              "permalink": "/docs/concepts/load-testing",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/concepts/load-testing.md",
+              "version": "current",
+              "sidebarPosition": 3,
+              "frontMatter": {
+                "sidebar_position": 3
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Integration testing",
+                "permalink": "/docs/concepts/integration-testing"
+              },
+              "next": {
+                "title": "Monitoring",
+                "permalink": "/docs/concepts/monitoring"
+              }
+            },
+            {
+              "unversionedId": "concepts/monitoring",
+              "id": "concepts/monitoring",
+              "isDocsHomePage": false,
+              "title": "Monitoring",
+              "description": "Having monitoring and analytics data for your application can be critical to its success. It allows you to solve wide range of issues like debugging some tricky bugs, researching performance issues, or implementing company secuirty policies like audit. However modifying your original application or changing your infrastructure sometimes can be impossible to too costly.",
+              "source": "@site/docs/concepts/monitoring.md",
+              "sourceDirName": "concepts",
+              "slug": "/concepts/monitoring",
+              "permalink": "/docs/concepts/monitoring",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/concepts/monitoring.md",
+              "version": "current",
+              "sidebarPosition": 4,
+              "frontMatter": {
+                "sidebar_position": 4
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Load testing",
+                "permalink": "/docs/concepts/load-testing"
+              },
+              "next": {
+                "title": "binaries",
+                "permalink": "/docs/installation/binaries"
+              }
+            },
+            {
+              "unversionedId": "guides/compilation",
+              "id": "guides/compilation",
+              "isDocsHomePage": false,
+              "title": "Compilation",
+              "description": "We provide pre-compiled binaries for Mac and Linux, but you are free to compile GoReplay by yourself.",
+              "source": "@site/docs/guides/compilation.md",
+              "sourceDirName": "guides",
+              "slug": "/guides/compilation",
+              "permalink": "/docs/guides/compilation",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/guides/compilation.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "AWS S3 for storing and replaying traffic",
+                "permalink": "/docs/pro/s3"
+              },
+              "next": {
+                "title": "Development Setup",
+                "permalink": "/docs/guides/development"
+              }
+            },
+            {
+              "unversionedId": "guides/development",
+              "id": "guides/development",
+              "isDocsHomePage": false,
+              "title": "Development Setup",
+              "description": "STEP 1: Install Docker",
+              "source": "@site/docs/guides/development.md",
+              "sourceDirName": "guides",
+              "slug": "/guides/development",
+              "permalink": "/docs/guides/development",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/guides/development.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Compilation",
+                "permalink": "/docs/guides/compilation"
+              },
+              "next": {
+                "title": "Distributed configuration",
+                "permalink": "/docs/guides/distributed-configuration"
+              }
+            },
+            {
+              "unversionedId": "guides/distributed-configuration",
+              "id": "guides/distributed-configuration",
+              "isDocsHomePage": false,
+              "title": "Distributed configuration",
+              "description": "Sometimes it makes sense to use separate Gor instance for replaying traffic and performing things like load testing, so your production machines do not spend precious resources. It is possible to configure Gor on your web machines forward traffic to Gor aggregator instance running on the separate server.",
+              "source": "@site/docs/guides/distributed-configuration.md",
+              "sourceDirName": "guides",
+              "slug": "/guides/distributed-configuration",
+              "permalink": "/docs/guides/distributed-configuration",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/guides/distributed-configuration.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Development Setup",
+                "permalink": "/docs/guides/development"
+              },
+              "next": {
+                "title": "Dealing with missing requests and responses",
+                "permalink": "/docs/guides/missing-requests"
+              }
+            },
+            {
+              "unversionedId": "guides/missing-requests",
+              "id": "guides/missing-requests",
+              "isDocsHomePage": false,
+              "title": "Dealing with missing requests and responses",
+              "description": "By its nature, GoReplay works by collecting raw TCP packets on network interface. The packets can arrive in random order, and role of GoReplay, in this case, is to re-construct TCP flow and extract data from TCP packets in the right order. Protocols like HTTP can be quite complex to re-construct since messages can divided to multiple packets, and there are cases like handling 100 continue messages, when relations between request and response TCP flows are not that obvious. If one of the packets in this flow for some reason will not be tracked, message will be either corrupted or GoReplay will not be able to build association between request and response.",
+              "source": "@site/docs/guides/missing-requests.md",
+              "sourceDirName": "guides",
+              "slug": "/guides/missing-requests",
+              "permalink": "/docs/guides/missing-requests",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/guides/missing-requests.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Distributed configuration",
+                "permalink": "/docs/guides/distributed-configuration"
+              },
+              "next": {
+                "title": "Capturing traffic outside of the application machine",
+                "permalink": "/docs/guides/network-capture"
+              }
+            },
+            {
+              "unversionedId": "guides/network-capture",
+              "id": "guides/network-capture",
+              "isDocsHomePage": false,
+              "title": "Capturing traffic outside of the application machine",
+              "description": "Since GoReplay works on networking level, it is possible to have a configuration when GoReplay agent installed outside of application machine,  on a separate instance. Using this approach you do not need to install agent on application machines at all, and such approach is unvirsal enough to work with any installation type.",
+              "source": "@site/docs/guides/network-capture.md",
+              "sourceDirName": "guides",
+              "slug": "/guides/network-capture",
+              "permalink": "/docs/guides/network-capture",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/guides/network-capture.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Dealing with missing requests and responses",
+                "permalink": "/docs/guides/missing-requests"
+              },
+              "next": {
+                "title": "Running GoReplay as non root user",
+                "permalink": "/docs/guides/running-without-root-permissions"
+              }
+            },
+            {
+              "unversionedId": "guides/running-without-root-permissions",
+              "id": "guides/running-without-root-permissions",
+              "isDocsHomePage": false,
+              "title": "Running GoReplay as non root user",
+              "description": "You can enable Gor for non-root users in a secure method by using the following commands",
+              "source": "@site/docs/guides/running-without-root-permissions.md",
+              "sourceDirName": "guides",
+              "slug": "/guides/running-without-root-permissions",
+              "permalink": "/docs/guides/running-without-root-permissions",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/guides/running-without-root-permissions.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Capturing traffic outside of the application machine",
+                "permalink": "/docs/guides/network-capture"
+              }
+            },
+            {
+              "unversionedId": "installation/binaries",
+              "id": "installation/binaries",
+              "isDocsHomePage": false,
+              "title": "binaries",
+              "description": "Binaries",
+              "source": "@site/docs/installation/binaries.md",
+              "sourceDirName": "installation",
+              "slug": "/installation/binaries",
+              "permalink": "/docs/installation/binaries",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/installation/binaries.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Monitoring",
+                "permalink": "/docs/concepts/monitoring"
+              },
+              "next": {
+                "title": "docker",
+                "permalink": "/docs/installation/docker"
+              }
+            },
+            {
+              "unversionedId": "installation/docker",
+              "id": "installation/docker",
+              "isDocsHomePage": false,
+              "title": "docker",
+              "description": "Docker",
+              "source": "@site/docs/installation/docker.md",
+              "sourceDirName": "installation",
+              "slug": "/installation/docker",
+              "permalink": "/docs/installation/docker",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/installation/docker.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "binaries",
+                "permalink": "/docs/installation/binaries"
+              },
+              "next": {
+                "title": "macos",
+                "permalink": "/docs/installation/macos"
+              }
+            },
+            {
+              "unversionedId": "installation/macos",
+              "id": "installation/macos",
+              "isDocsHomePage": false,
+              "title": "macos",
+              "description": "MacOs",
+              "source": "@site/docs/installation/macos.md",
+              "sourceDirName": "installation",
+              "slug": "/installation/macos",
+              "permalink": "/docs/installation/macos",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/installation/macos.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "docker",
+                "permalink": "/docs/installation/docker"
+              },
+              "next": {
+                "title": "CLI Reference",
+                "permalink": "/docs/reference/cli"
+              }
+            },
+            {
+              "unversionedId": "intro",
+              "id": "intro",
+              "isDocsHomePage": false,
+              "title": "Introduction",
+              "description": "As your application grows, the effort required to test it also grows exponentially. GoReplay offers you the simple idea of reusing your existing traffic for testing, which makes it incredibly powerful. Our state of art technique allows you to analyze and record your application traffic without affecting it. This eliminates the risks that come with putting a third party component in the critical path.",
+              "source": "@site/docs/intro.md",
+              "sourceDirName": ".",
+              "slug": "/intro",
+              "permalink": "/docs/intro",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/intro.md",
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "next": {
+                "title": "Architecture",
+                "permalink": "/docs/concepts/architecture"
+              }
+            },
+            {
+              "unversionedId": "pro/accurate-tcp-sessions",
+              "id": "pro/accurate-tcp-sessions",
+              "isDocsHomePage": false,
+              "title": "Accurate TCP sessions",
+              "description": "This feature available only in PRO version",
+              "source": "@site/docs/pro/accurate-tcp-sessions.md",
+              "sourceDirName": "pro",
+              "slug": "/pro/accurate-tcp-sessions",
+              "permalink": "/docs/pro/accurate-tcp-sessions",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/pro/accurate-tcp-sessions.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Getting Started",
+                "permalink": "/docs/pro/getting-started"
+              },
+              "next": {
+                "title": "Appliance License",
+                "permalink": "/docs/pro/appliance-license"
+              }
+            },
+            {
+              "unversionedId": "pro/appliance-license",
+              "id": "pro/appliance-license",
+              "isDocsHomePage": false,
+              "title": "Appliance License",
+              "description": "GoReplay can be used as a fully white-label solution to get user HTTP traffic information to your platform.",
+              "source": "@site/docs/pro/appliance-license.md",
+              "sourceDirName": "pro",
+              "slug": "/pro/appliance-license",
+              "permalink": "/docs/pro/appliance-license",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/pro/appliance-license.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Accurate TCP sessions",
+                "permalink": "/docs/pro/accurate-tcp-sessions"
+              },
+              "next": {
+                "title": "Custom protocols",
+                "permalink": "/docs/pro/custom-protocols"
+              }
+            },
+            {
+              "unversionedId": "pro/custom-protocols",
+              "id": "pro/custom-protocols",
+              "isDocsHomePage": false,
+              "title": "Custom protocols",
+              "description": "This feature available only in PRO version",
+              "source": "@site/docs/pro/custom-protocols.md",
+              "sourceDirName": "pro",
+              "slug": "/pro/custom-protocols",
+              "permalink": "/docs/pro/custom-protocols",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/pro/custom-protocols.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Appliance License",
+                "permalink": "/docs/pro/appliance-license"
+              },
+              "next": {
+                "title": "AWS S3 for storing and replaying traffic",
+                "permalink": "/docs/pro/s3"
+              }
+            },
+            {
+              "unversionedId": "pro/getting-started",
+              "id": "pro/getting-started",
+              "isDocsHomePage": false,
+              "title": "Getting Started",
+              "description": "PRO version offers unique capabilities, commercial licensing and priority support.",
+              "source": "@site/docs/pro/getting-started.md",
+              "sourceDirName": "pro",
+              "slug": "/pro/getting-started",
+              "permalink": "/docs/pro/getting-started",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/pro/getting-started.md",
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Getting Started",
+                "permalink": "/docs/tutorial/getting-started"
+              },
+              "next": {
+                "title": "Accurate TCP sessions",
+                "permalink": "/docs/pro/accurate-tcp-sessions"
+              }
+            },
+            {
+              "unversionedId": "pro/s3",
+              "id": "pro/s3",
+              "isDocsHomePage": false,
+              "title": "AWS S3 for storing and replaying traffic",
+              "description": "This feature available only in PRO version",
+              "source": "@site/docs/pro/s3.md",
+              "sourceDirName": "pro",
+              "slug": "/pro/s3",
+              "permalink": "/docs/pro/s3",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/pro/s3.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Custom protocols",
+                "permalink": "/docs/pro/custom-protocols"
+              },
+              "next": {
+                "title": "Compilation",
+                "permalink": "/docs/guides/compilation"
+              }
+            },
+            {
+              "unversionedId": "reference/cli",
+              "id": "reference/cli",
+              "isDocsHomePage": false,
+              "title": "CLI Reference",
+              "description": "* --copy-buffer-size  - Set the buffer size for an individual request (default 5MB)",
+              "source": "@site/docs/reference/cli.md",
+              "sourceDirName": "reference",
+              "slug": "/reference/cli",
+              "permalink": "/docs/reference/cli",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/cli.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "macos",
+                "permalink": "/docs/installation/macos"
+              },
+              "next": {
+                "title": "Elastic Search",
+                "permalink": "/docs/reference/elasticsearch"
+              }
+            },
+            {
+              "unversionedId": "reference/elasticsearch",
+              "id": "reference/elasticsearch",
+              "isDocsHomePage": false,
+              "title": "Elastic Search",
+              "description": "Gor can export requests and replayed response data to ElasticSearch:",
+              "source": "@site/docs/reference/elasticsearch.md",
+              "sourceDirName": "reference",
+              "slug": "/reference/elasticsearch",
+              "permalink": "/docs/reference/elasticsearch",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/elasticsearch.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "CLI Reference",
+                "permalink": "/docs/reference/cli"
+              },
+              "next": {
+                "title": "Saving and Replaying from file",
+                "permalink": "/docs/reference/file"
+              }
+            },
+            {
+              "unversionedId": "reference/file",
+              "id": "reference/file",
+              "isDocsHomePage": false,
+              "title": "Saving and Replaying from file",
+              "description": "You can save requests to file, and replay them later. While replaying it will preserve the original time differences between requests. If you apply percentage based limiting timing between requests will be reduced or increased appropriately: this approach opens possibilities like load testing, see below.",
+              "source": "@site/docs/reference/file.md",
+              "sourceDirName": "reference",
+              "slug": "/reference/file",
+              "permalink": "/docs/reference/file",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/file.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Elastic Search",
+                "permalink": "/docs/reference/elasticsearch"
+              },
+              "next": {
+                "title": "Request filtering",
+                "permalink": "/docs/reference/filter"
+              }
+            },
+            {
+              "unversionedId": "reference/filter",
+              "id": "reference/filter",
+              "isDocsHomePage": false,
+              "title": "Request filtering",
+              "description": "Filtering is useful when you need to capture only specific part of traffic, like API requests. It is possible to filter by URL, HTTP header or HTTP method.",
+              "source": "@site/docs/reference/filter.md",
+              "sourceDirName": "reference",
+              "slug": "/reference/filter",
+              "permalink": "/docs/reference/filter",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/filter.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Saving and Replaying from file",
+                "permalink": "/docs/reference/file"
+              },
+              "next": {
+                "title": "Replaying HTTP traffic",
+                "permalink": "/docs/reference/http"
+              }
+            },
+            {
+              "unversionedId": "reference/http",
+              "id": "reference/http",
+              "isDocsHomePage": false,
+              "title": "Replaying HTTP traffic",
+              "description": "GoReplay can replay HTTP traffic using --output-http option:",
+              "source": "@site/docs/reference/http.md",
+              "sourceDirName": "reference",
+              "slug": "/reference/http",
+              "permalink": "/docs/reference/http",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/http.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Request filtering",
+                "permalink": "/docs/reference/filter"
+              },
+              "next": {
+                "title": "Kafka",
+                "permalink": "/docs/reference/kafka"
+              }
+            },
+            {
+              "unversionedId": "reference/kafka",
+              "id": "reference/kafka",
+              "isDocsHomePage": false,
+              "title": "Kafka",
+              "description": "GoReplay allows you to use Apache Kafka to stream data from and to GoReplay.",
+              "source": "@site/docs/reference/kafka.md",
+              "sourceDirName": "reference",
+              "slug": "/reference/kafka",
+              "permalink": "/docs/reference/kafka",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/kafka.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Replaying HTTP traffic",
+                "permalink": "/docs/reference/http"
+              },
+              "next": {
+                "title": "Rate limiting",
+                "permalink": "/docs/reference/limiter"
+              }
+            },
+            {
+              "unversionedId": "reference/limiter",
+              "id": "reference/limiter",
+              "isDocsHomePage": false,
+              "title": "Rate limiting",
+              "description": "Rate limiting can be useful if you only want to forward parts of incoming traffic, for example, to not overload your test environment. There are two strategies: dropping random requests or dropping fractions of requests based on Header or URL param value.",
+              "source": "@site/docs/reference/limiter.md",
+              "sourceDirName": "reference",
+              "slug": "/reference/limiter",
+              "permalink": "/docs/reference/limiter",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/limiter.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Kafka",
+                "permalink": "/docs/reference/kafka"
+              },
+              "next": {
+                "title": "Middleware",
+                "permalink": "/docs/reference/middleware"
+              }
+            },
+            {
+              "unversionedId": "reference/middleware",
+              "id": "reference/middleware",
+              "isDocsHomePage": false,
+              "title": "Middleware",
+              "description": "GoReplay offers framework in NodeJS language, which hides protocol implementation, and provides primitives for writing middleware, see documentation https://github.com/buger/goreplay/tree/master/middleware. But protocol itself is quite simple, and you feel free to use any language.",
+              "source": "@site/docs/reference/middleware.md",
+              "sourceDirName": "reference",
+              "slug": "/reference/middleware",
+              "permalink": "/docs/reference/middleware",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/middleware.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Rate limiting",
+                "permalink": "/docs/reference/limiter"
+              },
+              "next": {
+                "title": "Request rewriting",
+                "permalink": "/docs/reference/rewrite"
+              }
+            },
+            {
+              "unversionedId": "reference/rewrite",
+              "id": "reference/rewrite",
+              "isDocsHomePage": false,
+              "title": "Request rewriting",
+              "description": "Gor supports rewriting of URLs, URL params and headers, see below.",
+              "source": "@site/docs/reference/rewrite.md",
+              "sourceDirName": "reference",
+              "slug": "/reference/rewrite",
+              "permalink": "/docs/reference/rewrite",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/rewrite.md",
+              "version": "current",
+              "frontMatter": {},
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Middleware",
+                "permalink": "/docs/reference/middleware"
+              },
+              "next": {
+                "title": "Getting Started",
+                "permalink": "/docs/tutorial/getting-started"
+              }
+            },
+            {
+              "unversionedId": "tutorial/getting-started",
+              "id": "tutorial/getting-started",
+              "isDocsHomePage": false,
+              "title": "Getting Started",
+              "description": "Video tutorial",
+              "source": "@site/docs/tutorial/getting-started.md",
+              "sourceDirName": "tutorial",
+              "slug": "/tutorial/getting-started",
+              "permalink": "/docs/tutorial/getting-started",
+              "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/tutorial/getting-started.md",
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Request rewriting",
+                "permalink": "/docs/reference/rewrite"
+              },
+              "next": {
+                "title": "Getting Started",
+                "permalink": "/docs/pro/getting-started"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "docusaurus-plugin-content-blog": {
+    "default": {
+      "blogPosts": [
+        {
+          "id": "welcome",
+          "metadata": {
+            "permalink": "/blog/welcome",
+            "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/blog/blog/2019-05-30-welcome.md",
+            "source": "@site/blog/2019-05-30-welcome.md",
+            "title": "Welcome",
+            "description": "Blog features are powered by the blog plugin. Simply add files to the blog directory. It supports tags as well!",
+            "date": "2019-05-30T00:00:00.000Z",
+            "formattedDate": "May 30, 2019",
+            "tags": [
+              {
+                "label": "facebook",
+                "permalink": "/blog/tags/facebook"
+              },
+              {
+                "label": "hello",
+                "permalink": "/blog/tags/hello"
+              },
+              {
+                "label": "docusaurus",
+                "permalink": "/blog/tags/docusaurus"
+              }
+            ],
+            "readingTime": 0.175,
+            "truncated": false,
+            "nextItem": {
+              "title": "Hello",
+              "permalink": "/blog/hello-world"
+            }
+          }
+        },
+        {
+          "id": "hello-world",
+          "metadata": {
+            "permalink": "/blog/hello-world",
+            "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/blog/blog/2019-05-29-hello-world.md",
+            "source": "@site/blog/2019-05-29-hello-world.md",
+            "title": "Hello",
+            "description": "Welcome to this blog. This blog is created with Docusaurus 2.",
+            "date": "2019-05-29T00:00:00.000Z",
+            "formattedDate": "May 29, 2019",
+            "tags": [
+              {
+                "label": "hello",
+                "permalink": "/blog/tags/hello"
+              },
+              {
+                "label": "docusaurus",
+                "permalink": "/blog/tags/docusaurus"
+              }
+            ],
+            "readingTime": 0.115,
+            "truncated": true,
+            "prevItem": {
+              "title": "Welcome",
+              "permalink": "/blog/welcome"
+            },
+            "nextItem": {
+              "title": "Hola",
+              "permalink": "/blog/hola"
+            }
+          }
+        },
+        {
+          "id": "hola",
+          "metadata": {
+            "permalink": "/blog/hola",
+            "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/blog/blog/2019-05-28-hola.md",
+            "source": "@site/blog/2019-05-28-hola.md",
+            "title": "Hola",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet",
+            "date": "2019-05-28T00:00:00.000Z",
+            "formattedDate": "May 28, 2019",
+            "tags": [
+              {
+                "label": "hola",
+                "permalink": "/blog/tags/hola"
+              },
+              {
+                "label": "docusaurus",
+                "permalink": "/blog/tags/docusaurus"
+              }
+            ],
+            "readingTime": 0.12,
+            "truncated": false,
+            "prevItem": {
+              "title": "Hello",
+              "permalink": "/blog/hello-world"
+            }
+          }
+        }
+      ],
+      "blogListPaginated": [
+        {
+          "metadata": {
+            "permalink": "/blog",
+            "page": 1,
+            "postsPerPage": 10,
+            "totalPages": 1,
+            "totalCount": 3,
+            "previousPage": null,
+            "nextPage": null,
+            "blogDescription": "Blog",
+            "blogTitle": "Blog"
+          },
+          "items": [
+            "welcome",
+            "hello-world",
+            "hola"
+          ]
+        }
+      ],
+      "blogTags": {
+        "facebook": {
+          "name": "facebook",
+          "items": [
+            "welcome"
+          ],
+          "permalink": "/blog/tags/facebook"
+        },
+        "hello": {
+          "name": "hello",
+          "items": [
+            "welcome",
+            "hello-world"
+          ],
+          "permalink": "/blog/tags/hello"
+        },
+        "docusaurus": {
+          "name": "docusaurus",
+          "items": [
+            "welcome",
+            "hello-world",
+            "hola"
+          ],
+          "permalink": "/blog/tags/docusaurus"
+        },
+        "hola": {
+          "name": "hola",
+          "items": [
+            "hola"
+          ],
+          "permalink": "/blog/tags/hola"
+        }
+      },
+      "blogTagsListPath": "/blog/tags"
+    }
+  },
+  "docusaurus-plugin-content-pages": {
+    "default": [
+      {
+        "type": "mdx",
+        "permalink": "/casestudy",
+        "source": "@site/src/pages/casestudy.md"
+      },
+      {
+        "type": "jsx",
+        "permalink": "/",
+        "source": "@site/src/pages/index.jsx"
+      },
+      {
+        "type": "mdx",
+        "permalink": "/pro",
+        "source": "@site/src/pages/pro.mdx"
+      },
+      {
+        "type": "mdx",
+        "permalink": "/casestudy/pagesjaunes",
+        "source": "@site/src/pages/casestudy/pagesjaunes.md"
+      },
+      {
+        "type": "mdx",
+        "permalink": "/casestudy/resdiary",
+        "source": "@site/src/pages/casestudy/resdiary.md"
+      },
+      {
+        "type": "mdx",
+        "permalink": "/casestudy/zenika",
+        "source": "@site/src/pages/casestudy/zenika.md"
+      }
+    ]
+  },
+  "docusaurus-plugin-debug": {
+    "default": null
+  },
+  "docusaurus-theme-classic": {
+    "default": null
+  },
+  "@cmfcmf/docusaurus-search-local": {
+    "default": null
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "unversionedId": "reference/middleware",
+  "id": "reference/middleware",
+  "isDocsHomePage": false,
+  "title": "Middleware",
+  "description": "GoReplay offers framework in NodeJS language, which hides protocol implementation, and provides primitives for writing middleware, see documentation https://github.com/buger/goreplay/tree/master/middleware. But protocol itself is quite simple, and you feel free to use any language.",
+  "source": "@site/docs/reference/middleware.md",
+  "sourceDirName": "reference",
+  "slug": "/reference/middleware",
+  "permalink": "/docs/reference/middleware",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/middleware.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Rate limiting",
+    "permalink": "/docs/reference/limiter"
+  },
+  "next": {
+    "title": "Request rewriting",
+    "permalink": "/docs/reference/rewrite"
+  }
+}

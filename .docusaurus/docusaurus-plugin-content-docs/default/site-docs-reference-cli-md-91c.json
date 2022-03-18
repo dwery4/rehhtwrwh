@@ -1,0 +1,23 @@
+{
+  "unversionedId": "reference/cli",
+  "id": "reference/cli",
+  "isDocsHomePage": false,
+  "title": "CLI Reference",
+  "description": "* --copy-buffer-size  - Set the buffer size for an individual request (default 5MB)",
+  "source": "@site/docs/reference/cli.md",
+  "sourceDirName": "reference",
+  "slug": "/reference/cli",
+  "permalink": "/docs/reference/cli",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/cli.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "macos",
+    "permalink": "/docs/installation/macos"
+  },
+  "next": {
+    "title": "Elastic Search",
+    "permalink": "/docs/reference/elasticsearch"
+  }
+}

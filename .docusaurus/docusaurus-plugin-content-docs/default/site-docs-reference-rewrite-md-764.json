@@ -1,0 +1,23 @@
+{
+  "unversionedId": "reference/rewrite",
+  "id": "reference/rewrite",
+  "isDocsHomePage": false,
+  "title": "Request rewriting",
+  "description": "Gor supports rewriting of URLs, URL params and headers, see below.",
+  "source": "@site/docs/reference/rewrite.md",
+  "sourceDirName": "reference",
+  "slug": "/reference/rewrite",
+  "permalink": "/docs/reference/rewrite",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/rewrite.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Middleware",
+    "permalink": "/docs/reference/middleware"
+  },
+  "next": {
+    "title": "Getting Started",
+    "permalink": "/docs/tutorial/getting-started"
+  }
+}

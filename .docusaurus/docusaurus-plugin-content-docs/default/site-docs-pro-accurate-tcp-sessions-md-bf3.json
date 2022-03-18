@@ -1,0 +1,23 @@
+{
+  "unversionedId": "pro/accurate-tcp-sessions",
+  "id": "pro/accurate-tcp-sessions",
+  "isDocsHomePage": false,
+  "title": "Accurate TCP sessions",
+  "description": "This feature available only in PRO version",
+  "source": "@site/docs/pro/accurate-tcp-sessions.md",
+  "sourceDirName": "pro",
+  "slug": "/pro/accurate-tcp-sessions",
+  "permalink": "/docs/pro/accurate-tcp-sessions",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/pro/accurate-tcp-sessions.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Getting Started",
+    "permalink": "/docs/pro/getting-started"
+  },
+  "next": {
+    "title": "Appliance License",
+    "permalink": "/docs/pro/appliance-license"
+  }
+}

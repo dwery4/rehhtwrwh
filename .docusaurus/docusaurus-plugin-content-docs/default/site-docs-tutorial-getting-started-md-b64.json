@@ -1,0 +1,26 @@
+{
+  "unversionedId": "tutorial/getting-started",
+  "id": "tutorial/getting-started",
+  "isDocsHomePage": false,
+  "title": "Getting Started",
+  "description": "Video tutorial",
+  "source": "@site/docs/tutorial/getting-started.md",
+  "sourceDirName": "tutorial",
+  "slug": "/tutorial/getting-started",
+  "permalink": "/docs/tutorial/getting-started",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/tutorial/getting-started.md",
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Request rewriting",
+    "permalink": "/docs/reference/rewrite"
+  },
+  "next": {
+    "title": "Getting Started",
+    "permalink": "/docs/pro/getting-started"
+  }
+}

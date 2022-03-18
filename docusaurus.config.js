@@ -101,7 +101,7 @@ module.exports = {
             {
               type: 'doc',
               docId: 'intro',
-              label: 'Slack'
+              label: 'Slack',
               url: "https://join.slack.com/t/goreplayhq/shared_invite/zt-vccekafo-W5jz_iKSDdVCUV_49KXelw"
             },
             {

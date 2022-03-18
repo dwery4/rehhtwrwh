@@ -1,0 +1,204 @@
+{
+  "pluginId": "default",
+  "version": "current",
+  "label": "Next",
+  "banner": "none",
+  "isLast": true,
+  "docsSidebars": {
+    "tutorialSidebar": [
+      {
+        "type": "link",
+        "label": "Introduction",
+        "href": "/docs/intro"
+      },
+      {
+        "type": "category",
+        "label": "Concepts",
+        "items": [
+          {
+            "type": "link",
+            "label": "Architecture",
+            "href": "/docs/concepts/architecture"
+          },
+          {
+            "type": "link",
+            "label": "Integration testing",
+            "href": "/docs/concepts/integration-testing"
+          },
+          {
+            "type": "link",
+            "label": "Load testing",
+            "href": "/docs/concepts/load-testing"
+          },
+          {
+            "type": "link",
+            "label": "Monitoring",
+            "href": "/docs/concepts/monitoring"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Installation",
+        "items": [
+          {
+            "type": "link",
+            "label": "binaries",
+            "href": "/docs/installation/binaries"
+          },
+          {
+            "type": "link",
+            "label": "docker",
+            "href": "/docs/installation/docker"
+          },
+          {
+            "type": "link",
+            "label": "macos",
+            "href": "/docs/installation/macos"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Reference",
+        "items": [
+          {
+            "type": "link",
+            "label": "CLI Reference",
+            "href": "/docs/reference/cli"
+          },
+          {
+            "type": "link",
+            "label": "Elastic Search",
+            "href": "/docs/reference/elasticsearch"
+          },
+          {
+            "type": "link",
+            "label": "Saving and Replaying from file",
+            "href": "/docs/reference/file"
+          },
+          {
+            "type": "link",
+            "label": "Request filtering",
+            "href": "/docs/reference/filter"
+          },
+          {
+            "type": "link",
+            "label": "Replaying HTTP traffic",
+            "href": "/docs/reference/http"
+          },
+          {
+            "type": "link",
+            "label": "Kafka",
+            "href": "/docs/reference/kafka"
+          },
+          {
+            "type": "link",
+            "label": "Rate limiting",
+            "href": "/docs/reference/limiter"
+          },
+          {
+            "type": "link",
+            "label": "Middleware",
+            "href": "/docs/reference/middleware"
+          },
+          {
+            "type": "link",
+            "label": "Request rewriting",
+            "href": "/docs/reference/rewrite"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Tutorial - Basics",
+        "items": [
+          {
+            "type": "link",
+            "label": "Getting Started",
+            "href": "/docs/tutorial/getting-started"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "GoReplay PRO",
+        "items": [
+          {
+            "type": "link",
+            "label": "Getting Started",
+            "href": "/docs/pro/getting-started"
+          },
+          {
+            "type": "link",
+            "label": "Accurate TCP sessions",
+            "href": "/docs/pro/accurate-tcp-sessions"
+          },
+          {
+            "type": "link",
+            "label": "Appliance License",
+            "href": "/docs/pro/appliance-license"
+          },
+          {
+            "type": "link",
+            "label": "Custom protocols",
+            "href": "/docs/pro/custom-protocols"
+          },
+          {
+            "type": "link",
+            "label": "AWS S3 for storing and replaying traffic",
+            "href": "/docs/pro/s3"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      },
+      {
+        "type": "category",
+        "label": "Guides",
+        "items": [
+          {
+            "type": "link",
+            "label": "Compilation",
+            "href": "/docs/guides/compilation"
+          },
+          {
+            "type": "link",
+            "label": "Development Setup",
+            "href": "/docs/guides/development"
+          },
+          {
+            "type": "link",
+            "label": "Distributed configuration",
+            "href": "/docs/guides/distributed-configuration"
+          },
+          {
+            "type": "link",
+            "label": "Dealing with missing requests and responses",
+            "href": "/docs/guides/missing-requests"
+          },
+          {
+            "type": "link",
+            "label": "Capturing traffic outside of the application machine",
+            "href": "/docs/guides/network-capture"
+          },
+          {
+            "type": "link",
+            "label": "Running GoReplay as non root user",
+            "href": "/docs/guides/running-without-root-permissions"
+          }
+        ],
+        "collapsed": true,
+        "collapsible": true
+      }
+    ]
+  }
+}

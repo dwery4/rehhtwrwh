@@ -1,0 +1,23 @@
+{
+  "unversionedId": "reference/http",
+  "id": "reference/http",
+  "isDocsHomePage": false,
+  "title": "Replaying HTTP traffic",
+  "description": "GoReplay can replay HTTP traffic using --output-http option:",
+  "source": "@site/docs/reference/http.md",
+  "sourceDirName": "reference",
+  "slug": "/reference/http",
+  "permalink": "/docs/reference/http",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/http.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Request filtering",
+    "permalink": "/docs/reference/filter"
+  },
+  "next": {
+    "title": "Kafka",
+    "permalink": "/docs/reference/kafka"
+  }
+}

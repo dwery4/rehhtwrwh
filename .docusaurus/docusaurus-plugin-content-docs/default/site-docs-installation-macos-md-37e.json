@@ -1,0 +1,23 @@
+{
+  "unversionedId": "installation/macos",
+  "id": "installation/macos",
+  "isDocsHomePage": false,
+  "title": "macos",
+  "description": "MacOs",
+  "source": "@site/docs/installation/macos.md",
+  "sourceDirName": "installation",
+  "slug": "/installation/macos",
+  "permalink": "/docs/installation/macos",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/installation/macos.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "docker",
+    "permalink": "/docs/installation/docker"
+  },
+  "next": {
+    "title": "CLI Reference",
+    "permalink": "/docs/reference/cli"
+  }
+}

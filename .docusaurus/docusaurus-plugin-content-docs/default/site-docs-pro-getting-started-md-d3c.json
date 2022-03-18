@@ -1,0 +1,26 @@
+{
+  "unversionedId": "pro/getting-started",
+  "id": "pro/getting-started",
+  "isDocsHomePage": false,
+  "title": "Getting Started",
+  "description": "PRO version offers unique capabilities, commercial licensing and priority support.",
+  "source": "@site/docs/pro/getting-started.md",
+  "sourceDirName": "pro",
+  "slug": "/pro/getting-started",
+  "permalink": "/docs/pro/getting-started",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/pro/getting-started.md",
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Getting Started",
+    "permalink": "/docs/tutorial/getting-started"
+  },
+  "next": {
+    "title": "Accurate TCP sessions",
+    "permalink": "/docs/pro/accurate-tcp-sessions"
+  }
+}

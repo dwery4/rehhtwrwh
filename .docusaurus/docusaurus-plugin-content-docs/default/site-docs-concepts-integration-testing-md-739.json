@@ -1,0 +1,26 @@
+{
+  "unversionedId": "concepts/integration-testing",
+  "id": "concepts/integration-testing",
+  "isDocsHomePage": false,
+  "title": "Integration testing",
+  "description": "GoReplay use shadowing technique, also known as mirroring, or dark traffic testing.",
+  "source": "@site/docs/concepts/integration-testing.md",
+  "sourceDirName": "concepts",
+  "slug": "/concepts/integration-testing",
+  "permalink": "/docs/concepts/integration-testing",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/concepts/integration-testing.md",
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Architecture",
+    "permalink": "/docs/concepts/architecture"
+  },
+  "next": {
+    "title": "Load testing",
+    "permalink": "/docs/concepts/load-testing"
+  }
+}

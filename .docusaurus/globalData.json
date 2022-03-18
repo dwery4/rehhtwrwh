@@ -1,0 +1,163 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "intro",
+          "docs": [
+            {
+              "id": "concepts/architecture",
+              "path": "/docs/concepts/architecture",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "concepts/integration-testing",
+              "path": "/docs/concepts/integration-testing",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "concepts/load-testing",
+              "path": "/docs/concepts/load-testing",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "concepts/monitoring",
+              "path": "/docs/concepts/monitoring",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "guides/compilation",
+              "path": "/docs/guides/compilation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "guides/development",
+              "path": "/docs/guides/development",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "guides/distributed-configuration",
+              "path": "/docs/guides/distributed-configuration",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "guides/missing-requests",
+              "path": "/docs/guides/missing-requests",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "guides/network-capture",
+              "path": "/docs/guides/network-capture",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "guides/running-without-root-permissions",
+              "path": "/docs/guides/running-without-root-permissions",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "installation/binaries",
+              "path": "/docs/installation/binaries",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "installation/docker",
+              "path": "/docs/installation/docker",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "installation/macos",
+              "path": "/docs/installation/macos",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/docs/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "pro/accurate-tcp-sessions",
+              "path": "/docs/pro/accurate-tcp-sessions",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "pro/appliance-license",
+              "path": "/docs/pro/appliance-license",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "pro/custom-protocols",
+              "path": "/docs/pro/custom-protocols",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "pro/getting-started",
+              "path": "/docs/pro/getting-started",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "pro/s3",
+              "path": "/docs/pro/s3",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "reference/cli",
+              "path": "/docs/reference/cli",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "reference/elasticsearch",
+              "path": "/docs/reference/elasticsearch",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "reference/file",
+              "path": "/docs/reference/file",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "reference/filter",
+              "path": "/docs/reference/filter",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "reference/http",
+              "path": "/docs/reference/http",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "reference/kafka",
+              "path": "/docs/reference/kafka",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "reference/limiter",
+              "path": "/docs/reference/limiter",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "reference/middleware",
+              "path": "/docs/reference/middleware",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "reference/rewrite",
+              "path": "/docs/reference/rewrite",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "tutorial/getting-started",
+              "path": "/docs/tutorial/getting-started",
+              "sidebar": "tutorialSidebar"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

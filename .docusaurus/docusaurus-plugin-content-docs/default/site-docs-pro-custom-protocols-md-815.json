@@ -1,0 +1,23 @@
+{
+  "unversionedId": "pro/custom-protocols",
+  "id": "pro/custom-protocols",
+  "isDocsHomePage": false,
+  "title": "Custom protocols",
+  "description": "This feature available only in PRO version",
+  "source": "@site/docs/pro/custom-protocols.md",
+  "sourceDirName": "pro",
+  "slug": "/pro/custom-protocols",
+  "permalink": "/docs/pro/custom-protocols",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/pro/custom-protocols.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Appliance License",
+    "permalink": "/docs/pro/appliance-license"
+  },
+  "next": {
+    "title": "AWS S3 for storing and replaying traffic",
+    "permalink": "/docs/pro/s3"
+  }
+}

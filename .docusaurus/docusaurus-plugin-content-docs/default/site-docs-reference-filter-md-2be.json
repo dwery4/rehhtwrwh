@@ -1,0 +1,23 @@
+{
+  "unversionedId": "reference/filter",
+  "id": "reference/filter",
+  "isDocsHomePage": false,
+  "title": "Request filtering",
+  "description": "Filtering is useful when you need to capture only specific part of traffic, like API requests. It is possible to filter by URL, HTTP header or HTTP method.",
+  "source": "@site/docs/reference/filter.md",
+  "sourceDirName": "reference",
+  "slug": "/reference/filter",
+  "permalink": "/docs/reference/filter",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/filter.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Saving and Replaying from file",
+    "permalink": "/docs/reference/file"
+  },
+  "next": {
+    "title": "Replaying HTTP traffic",
+    "permalink": "/docs/reference/http"
+  }
+}

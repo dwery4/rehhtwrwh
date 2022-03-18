@@ -1,0 +1,23 @@
+{
+  "unversionedId": "installation/docker",
+  "id": "installation/docker",
+  "isDocsHomePage": false,
+  "title": "docker",
+  "description": "Docker",
+  "source": "@site/docs/installation/docker.md",
+  "sourceDirName": "installation",
+  "slug": "/installation/docker",
+  "permalink": "/docs/installation/docker",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/installation/docker.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "binaries",
+    "permalink": "/docs/installation/binaries"
+  },
+  "next": {
+    "title": "macos",
+    "permalink": "/docs/installation/macos"
+  }
+}

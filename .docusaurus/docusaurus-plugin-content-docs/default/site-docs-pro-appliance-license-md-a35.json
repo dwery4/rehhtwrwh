@@ -1,0 +1,23 @@
+{
+  "unversionedId": "pro/appliance-license",
+  "id": "pro/appliance-license",
+  "isDocsHomePage": false,
+  "title": "Appliance License",
+  "description": "GoReplay can be used as a fully white-label solution to get user HTTP traffic information to your platform.",
+  "source": "@site/docs/pro/appliance-license.md",
+  "sourceDirName": "pro",
+  "slug": "/pro/appliance-license",
+  "permalink": "/docs/pro/appliance-license",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/pro/appliance-license.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Accurate TCP sessions",
+    "permalink": "/docs/pro/accurate-tcp-sessions"
+  },
+  "next": {
+    "title": "Custom protocols",
+    "permalink": "/docs/pro/custom-protocols"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "unversionedId": "guides/network-capture",
+  "id": "guides/network-capture",
+  "isDocsHomePage": false,
+  "title": "Capturing traffic outside of the application machine",
+  "description": "Since GoReplay works on networking level, it is possible to have a configuration when GoReplay agent installed outside of application machine,  on a separate instance. Using this approach you do not need to install agent on application machines at all, and such approach is unvirsal enough to work with any installation type.",
+  "source": "@site/docs/guides/network-capture.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/network-capture",
+  "permalink": "/docs/guides/network-capture",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/guides/network-capture.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Dealing with missing requests and responses",
+    "permalink": "/docs/guides/missing-requests"
+  },
+  "next": {
+    "title": "Running GoReplay as non root user",
+    "permalink": "/docs/guides/running-without-root-permissions"
+  }
+}

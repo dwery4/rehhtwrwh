@@ -1,0 +1,26 @@
+{
+  "unversionedId": "concepts/architecture",
+  "id": "concepts/architecture",
+  "isDocsHomePage": false,
+  "title": "Architecture",
+  "description": "Gor architecture tries to follow UNIX philosophy: everything made of pipes - various inputs multiplexing data to outputs. It is possible to have multiple inputs and outputs.",
+  "source": "@site/docs/concepts/architecture.md",
+  "sourceDirName": "concepts",
+  "slug": "/concepts/architecture",
+  "permalink": "/docs/concepts/architecture",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/concepts/architecture.md",
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/docs/intro"
+  },
+  "next": {
+    "title": "Integration testing",
+    "permalink": "/docs/concepts/integration-testing"
+  }
+}

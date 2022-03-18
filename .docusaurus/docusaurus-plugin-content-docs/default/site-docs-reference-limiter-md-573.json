@@ -1,0 +1,23 @@
+{
+  "unversionedId": "reference/limiter",
+  "id": "reference/limiter",
+  "isDocsHomePage": false,
+  "title": "Rate limiting",
+  "description": "Rate limiting can be useful if you only want to forward parts of incoming traffic, for example, to not overload your test environment. There are two strategies: dropping random requests or dropping fractions of requests based on Header or URL param value.",
+  "source": "@site/docs/reference/limiter.md",
+  "sourceDirName": "reference",
+  "slug": "/reference/limiter",
+  "permalink": "/docs/reference/limiter",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/limiter.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Kafka",
+    "permalink": "/docs/reference/kafka"
+  },
+  "next": {
+    "title": "Middleware",
+    "permalink": "/docs/reference/middleware"
+  }
+}

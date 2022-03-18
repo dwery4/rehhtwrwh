@@ -1,0 +1,23 @@
+{
+  "unversionedId": "guides/compilation",
+  "id": "guides/compilation",
+  "isDocsHomePage": false,
+  "title": "Compilation",
+  "description": "We provide pre-compiled binaries for Mac and Linux, but you are free to compile GoReplay by yourself.",
+  "source": "@site/docs/guides/compilation.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/compilation",
+  "permalink": "/docs/guides/compilation",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/guides/compilation.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "AWS S3 for storing and replaying traffic",
+    "permalink": "/docs/pro/s3"
+  },
+  "next": {
+    "title": "Development Setup",
+    "permalink": "/docs/guides/development"
+  }
+}

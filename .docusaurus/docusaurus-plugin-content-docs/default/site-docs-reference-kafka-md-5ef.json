@@ -1,0 +1,23 @@
+{
+  "unversionedId": "reference/kafka",
+  "id": "reference/kafka",
+  "isDocsHomePage": false,
+  "title": "Kafka",
+  "description": "GoReplay allows you to use Apache Kafka to stream data from and to GoReplay.",
+  "source": "@site/docs/reference/kafka.md",
+  "sourceDirName": "reference",
+  "slug": "/reference/kafka",
+  "permalink": "/docs/reference/kafka",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/kafka.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Replaying HTTP traffic",
+    "permalink": "/docs/reference/http"
+  },
+  "next": {
+    "title": "Rate limiting",
+    "permalink": "/docs/reference/limiter"
+  }
+}

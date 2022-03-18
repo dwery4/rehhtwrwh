@@ -1,0 +1,23 @@
+{
+  "unversionedId": "guides/development",
+  "id": "guides/development",
+  "isDocsHomePage": false,
+  "title": "Development Setup",
+  "description": "STEP 1: Install Docker",
+  "source": "@site/docs/guides/development.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/development",
+  "permalink": "/docs/guides/development",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/guides/development.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Compilation",
+    "permalink": "/docs/guides/compilation"
+  },
+  "next": {
+    "title": "Distributed configuration",
+    "permalink": "/docs/guides/distributed-configuration"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "unversionedId": "concepts/monitoring",
+  "id": "concepts/monitoring",
+  "isDocsHomePage": false,
+  "title": "Monitoring",
+  "description": "Having monitoring and analytics data for your application can be critical to its success. It allows you to solve wide range of issues like debugging some tricky bugs, researching performance issues, or implementing company secuirty policies like audit. However modifying your original application or changing your infrastructure sometimes can be impossible to too costly.",
+  "source": "@site/docs/concepts/monitoring.md",
+  "sourceDirName": "concepts",
+  "slug": "/concepts/monitoring",
+  "permalink": "/docs/concepts/monitoring",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/concepts/monitoring.md",
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Load testing",
+    "permalink": "/docs/concepts/load-testing"
+  },
+  "next": {
+    "title": "binaries",
+    "permalink": "/docs/installation/binaries"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "unversionedId": "guides/missing-requests",
+  "id": "guides/missing-requests",
+  "isDocsHomePage": false,
+  "title": "Dealing with missing requests and responses",
+  "description": "By its nature, GoReplay works by collecting raw TCP packets on network interface. The packets can arrive in random order, and role of GoReplay, in this case, is to re-construct TCP flow and extract data from TCP packets in the right order. Protocols like HTTP can be quite complex to re-construct since messages can divided to multiple packets, and there are cases like handling 100 continue messages, when relations between request and response TCP flows are not that obvious. If one of the packets in this flow for some reason will not be tracked, message will be either corrupted or GoReplay will not be able to build association between request and response.",
+  "source": "@site/docs/guides/missing-requests.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/missing-requests",
+  "permalink": "/docs/guides/missing-requests",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/guides/missing-requests.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Distributed configuration",
+    "permalink": "/docs/guides/distributed-configuration"
+  },
+  "next": {
+    "title": "Capturing traffic outside of the application machine",
+    "permalink": "/docs/guides/network-capture"
+  }
+}

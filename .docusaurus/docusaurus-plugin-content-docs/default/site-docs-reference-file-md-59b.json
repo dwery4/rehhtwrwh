@@ -1,0 +1,23 @@
+{
+  "unversionedId": "reference/file",
+  "id": "reference/file",
+  "isDocsHomePage": false,
+  "title": "Saving and Replaying from file",
+  "description": "You can save requests to file, and replay them later. While replaying it will preserve the original time differences between requests. If you apply percentage based limiting timing between requests will be reduced or increased appropriately: this approach opens possibilities like load testing, see below.",
+  "source": "@site/docs/reference/file.md",
+  "sourceDirName": "reference",
+  "slug": "/reference/file",
+  "permalink": "/docs/reference/file",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/reference/file.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Elastic Search",
+    "permalink": "/docs/reference/elasticsearch"
+  },
+  "next": {
+    "title": "Request filtering",
+    "permalink": "/docs/reference/filter"
+  }
+}

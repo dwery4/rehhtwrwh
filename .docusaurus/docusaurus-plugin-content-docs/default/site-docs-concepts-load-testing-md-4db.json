@@ -1,0 +1,26 @@
+{
+  "unversionedId": "concepts/load-testing",
+  "id": "concepts/load-testing",
+  "isDocsHomePage": false,
+  "title": "Load testing",
+  "description": "Writing synthetic tests is difficult, and it's almost impossible to truly replicate production traffic patterns. Humans, browsers, and robots all do strange things that affect the frequency of requests, URL weighting, size of headers, session persistance and way more. In some cases only specific user flow can show performance issues.",
+  "source": "@site/docs/concepts/load-testing.md",
+  "sourceDirName": "concepts",
+  "slug": "/concepts/load-testing",
+  "permalink": "/docs/concepts/load-testing",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/concepts/load-testing.md",
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Integration testing",
+    "permalink": "/docs/concepts/integration-testing"
+  },
+  "next": {
+    "title": "Monitoring",
+    "permalink": "/docs/concepts/monitoring"
+  }
+}

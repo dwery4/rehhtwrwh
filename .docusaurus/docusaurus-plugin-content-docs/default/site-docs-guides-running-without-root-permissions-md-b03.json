@@ -1,0 +1,19 @@
+{
+  "unversionedId": "guides/running-without-root-permissions",
+  "id": "guides/running-without-root-permissions",
+  "isDocsHomePage": false,
+  "title": "Running GoReplay as non root user",
+  "description": "You can enable Gor for non-root users in a secure method by using the following commands",
+  "source": "@site/docs/guides/running-without-root-permissions.md",
+  "sourceDirName": "guides",
+  "slug": "/guides/running-without-root-permissions",
+  "permalink": "/docs/guides/running-without-root-permissions",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/guides/running-without-root-permissions.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Capturing traffic outside of the application machine",
+    "permalink": "/docs/guides/network-capture"
+  }
+}

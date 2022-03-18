@@ -1,0 +1,23 @@
+{
+  "unversionedId": "pro/s3",
+  "id": "pro/s3",
+  "isDocsHomePage": false,
+  "title": "AWS S3 for storing and replaying traffic",
+  "description": "This feature available only in PRO version",
+  "source": "@site/docs/pro/s3.md",
+  "sourceDirName": "pro",
+  "slug": "/pro/s3",
+  "permalink": "/docs/pro/s3",
+  "editUrl": "https://github.com/buger/goreplay-website/edit/master/website/docs/pro/s3.md",
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Custom protocols",
+    "permalink": "/docs/pro/custom-protocols"
+  },
+  "next": {
+    "title": "Compilation",
+    "permalink": "/docs/guides/compilation"
+  }
+}
