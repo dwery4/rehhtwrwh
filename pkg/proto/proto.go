@@ -75,7 +75,7 @@ func PayloadMeta(payload []byte) [][]byte {
 	return bytes.Split(payload[:headerSize], []byte{' '})
 }
 
-// PlayloadMetaWithBody returns the meta data and body of the payload
+// PayloadMetaWithBody returns the meta data and body of the payload
 func PayloadMetaWithBody(payload []byte) (meta, body []byte) {
 	if i := bytes.IndexByte(payload, '\n'); i > 0 && len(payload) > i+1 {
 		meta = payload[:i+1]

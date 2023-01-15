@@ -41,7 +41,7 @@ type TCPOutputConfig struct {
 
 // NewTCPOutput constructor for TCPOutput
 // Initialize X workers which hold keep-alive connection
-func NewTCPOutput(address string, config *TCPOutputConfig) plugin.PluginWriter {
+func NewTCPOutput(address string, config *TCPOutputConfig) plugin.Writer {
 	o := new(TCPOutput)
 
 	o.address = address

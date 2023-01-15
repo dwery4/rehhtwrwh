@@ -68,8 +68,8 @@ func TestRAWInputIPv4(t *testing.T) {
 	})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 	plugins.All = append(plugins.All, input, output)
 
@@ -134,8 +134,8 @@ func TestRAWInputNoKeepAlive(t *testing.T) {
 	})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 	plugins.All = append(plugins.All, input, output)
 
@@ -199,8 +199,8 @@ func TestRAWInputIPv6(t *testing.T) {
 	})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 
 	emitter := emitter.New()
@@ -263,8 +263,8 @@ func TestInputRAWChunkedEncoding(t *testing.T) {
 	httpOutput := gor_http.NewHTTPOutput(replay.URL, &gor_http.HTTPOutputConfig{})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{httpOutput},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{httpOutput},
 	}
 	plugins.All = append(plugins.All, input, httpOutput)
 
@@ -337,8 +337,8 @@ func BenchmarkRAWInputWithReplay(b *testing.B) {
 	httpOutput := gor_http.NewHTTPOutput("http://"+replayAddr, &gor_http.HTTPOutputConfig{})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{testOutput, httpOutput},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{testOutput, httpOutput},
 	}
 
 	emitter := emitter.New()

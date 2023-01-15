@@ -42,7 +42,7 @@ type BinaryOutput struct {
 
 // NewBinaryOutput constructor for BinaryOutput
 // Initialize workers
-func NewBinaryOutput(address string, config *BinaryOutputConfig) plugin.PluginReadWriter {
+func NewBinaryOutput(address string, config *BinaryOutputConfig) plugin.ReadWriter {
 	o := new(BinaryOutput)
 
 	o.address = address

@@ -53,8 +53,8 @@ func TestHTTPOutput(t *testing.T) {
 	})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{httpOutput, output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{httpOutput, output},
 	}
 	plugins.All = append(plugins.All, input, output, httpOutput)
 
@@ -95,8 +95,8 @@ func TestHTTPOutputKeepOriginalHost(t *testing.T) {
 	output := NewHTTPOutput(server.URL, &HTTPOutputConfig{OriginalHost: true, SkipVerify: true})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 	plugins.All = append(plugins.All, input, output)
 
@@ -124,8 +124,8 @@ func TestHTTPOutputSSL(t *testing.T) {
 	output := NewHTTPOutput(server.URL, &HTTPOutputConfig{SkipVerify: true})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 	plugins.All = append(plugins.All, input, output)
 
@@ -157,8 +157,8 @@ func TestHTTPOutputSessions(t *testing.T) {
 	output := NewHTTPOutput(server.URL, &HTTPOutputConfig{})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 	plugins.All = append(plugins.All, input, output)
 	emitter := emitter.New(&emitter.Config{
@@ -199,8 +199,8 @@ func BenchmarkHTTPOutput(b *testing.B) {
 	output := NewHTTPOutput(server.URL, &HTTPOutputConfig{WorkersMax: 1})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 	plugins.All = append(plugins.All, input, output)
 
@@ -228,8 +228,8 @@ func BenchmarkHTTPOutputTLS(b *testing.B) {
 	output := NewHTTPOutput(server.URL, &HTTPOutputConfig{SkipVerify: true, WorkersMax: 1})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 	plugins.All = append(plugins.All, input, output)
 

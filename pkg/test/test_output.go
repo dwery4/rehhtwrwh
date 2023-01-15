@@ -11,7 +11,7 @@ type TestOutput struct {
 }
 
 // NewTestOutput constructor for TestOutput, accepts callback which get called on each incoming Write
-func NewTestOutput(cb WriteCallback) plugin.PluginWriter {
+func NewTestOutput(cb WriteCallback) plugin.Writer {
 	i := new(TestOutput)
 	i.cb = cb
 

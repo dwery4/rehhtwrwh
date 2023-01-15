@@ -74,7 +74,7 @@ func (e *Emitter) Start(plugins *plugin.InOutPlugins) {
 	} else {
 		for _, in := range plugins.Inputs {
 			e.Add(1)
-			go func(in plugin.PluginReader) {
+			go func(in plugin.Reader) {
 				defer e.Done()
 				if err := e.CopyMulty(in, plugins.Outputs...); err != nil {
 					log.Error().Err(err).Msg("error during copy")
@@ -99,7 +99,7 @@ func (e *Emitter) Close() {
 }
 
 // CopyMulty copies from 1 reader to multiple writers
-func (e *Emitter) CopyMulty(src plugin.PluginReader, writers ...plugin.PluginWriter) error {
+func (e *Emitter) CopyMulty(src plugin.Reader, writers ...plugin.Writer) error {
 	wIndex := 0
 	modifier := http_modifier.NewHTTPModifier(&e.config.ModifierConfig)
 	filteredRequests := freecache.NewCache(200 * 1024 * 1024) // 200M

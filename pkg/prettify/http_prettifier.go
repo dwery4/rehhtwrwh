@@ -12,6 +12,7 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+// PrettifyHTTP prettifies HTTP payload
 func PrettifyHTTP(p []byte) []byte {
 
 	tEnc := bytes.Equal(http_proto.Header(p, []byte("Transfer-Encoding")), []byte("chunked"))

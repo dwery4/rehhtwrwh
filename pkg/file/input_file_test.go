@@ -19,7 +19,7 @@ import (
 
 func TestInputFileWithGET(t *testing.T) {
 	input := test.NewTestInput()
-	rg := NewRequestGenerator([]plugin.PluginReader{input}, func() { input.EmitGET() }, 1)
+	rg := NewRequestGenerator([]plugin.Reader{input}, func() { input.EmitGET() }, 1)
 	readPayloads := []*plugin.Message{}
 
 	// Given a capture file with a GET request
@@ -42,7 +42,7 @@ func TestInputFileWithGET(t *testing.T) {
 
 func TestInputFileWithPayloadLargerThan64Kb(t *testing.T) {
 	input := test.NewTestInput()
-	rg := NewRequestGenerator([]plugin.PluginReader{input}, func() { input.EmitSizedPOST(64 * 1024) }, 1)
+	rg := NewRequestGenerator([]plugin.Reader{input}, func() { input.EmitSizedPOST(64 * 1024) }, 1)
 	readPayloads := []*plugin.Message{}
 
 	// Given a capture file with a request over 64Kb
@@ -67,7 +67,7 @@ func TestInputFileWithPayloadLargerThan64Kb(t *testing.T) {
 func TestInputFileWithGETAndPOST(t *testing.T) {
 
 	input := test.NewTestInput()
-	rg := NewRequestGenerator([]plugin.PluginReader{input}, func() {
+	rg := NewRequestGenerator([]plugin.Reader{input}, func() {
 		input.EmitGET()
 		input.EmitPOST()
 	}, 2)
@@ -259,12 +259,12 @@ func (expectedCaptureFile *CaptureFile) TearDown() {
 }
 
 type RequestGenerator struct {
-	inputs []plugin.PluginReader
+	inputs []plugin.Reader
 	emit   func()
 	wg     *sync.WaitGroup
 }
 
-func NewRequestGenerator(inputs []plugin.PluginReader, emit func(), count int) (rg *RequestGenerator) {
+func NewRequestGenerator(inputs []plugin.Reader, emit func(), count int) (rg *RequestGenerator) {
 	rg = new(RequestGenerator)
 	rg.inputs = inputs
 	rg.emit = emit
@@ -308,7 +308,7 @@ func CreateCaptureFile(requestGenerator *RequestGenerator) *CaptureFile {
 
 	plugins := &plugin.InOutPlugins{
 		Inputs:  requestGenerator.inputs,
-		Outputs: []plugin.PluginWriter{output, outputFile},
+		Outputs: []plugin.Writer{output, outputFile},
 	}
 	for _, input := range requestGenerator.inputs {
 		plugins.All = append(plugins.All, input)
@@ -338,8 +338,8 @@ func ReadFromCaptureFile(captureFile *os.File, count int, callback test.WriteCal
 	})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 	plugins.All = append(plugins.All, input, output)
 

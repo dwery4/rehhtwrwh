@@ -23,8 +23,8 @@ func TestWebSocketOutput(t *testing.T) {
 	output := NewWebSocketOutput(wsAddr, &WebSocketOutputConfig{Workers: 1})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 
 	emitter := emitter.New()

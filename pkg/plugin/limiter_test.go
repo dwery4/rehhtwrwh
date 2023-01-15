@@ -12,8 +12,8 @@ package plugin
 // 	wg.Add(10)
 
 // 	plugins := &InOutPlugins{
-// 		Inputs:  []PluginReader{input},
-// 		Outputs: []PluginWriter{output},
+// 		Inputs:  []Reader{input},
+// 		Outputs: []Writer{output},
 // 	}
 // 	plugins.All = append(plugins.All, input, output)
 
@@ -38,8 +38,8 @@ package plugin
 // 	wg.Add(10)
 
 // 	plugins := &InOutPlugins{
-// 		Inputs:  []PluginReader{input},
-// 		Outputs: []PluginWriter{output},
+// 		Inputs:  []Reader{input},
+// 		Outputs: []Writer{output},
 // 	}
 // 	plugins.All = append(plugins.All, input, output)
 
@@ -64,8 +64,8 @@ package plugin
 // 	}), "0%")
 
 // 	plugins := &InOutPlugins{
-// 		Inputs:  []PluginReader{input},
-// 		Outputs: []PluginWriter{output},
+// 		Inputs:  []Reader{input},
+// 		Outputs: []Writer{output},
 // 	}
 // 	plugins.All = append(plugins.All, input, output)
 
@@ -90,8 +90,8 @@ package plugin
 // 	wg.Add(100)
 
 // 	plugins := &InOutPlugins{
-// 		Inputs:  []PluginReader{input},
-// 		Outputs: []PluginWriter{output},
+// 		Inputs:  []Reader{input},
+// 		Outputs: []Writer{output},
 // 	}
 // 	plugins.All = append(plugins.All, input, output)
 

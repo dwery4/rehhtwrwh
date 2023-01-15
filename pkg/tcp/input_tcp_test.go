@@ -31,8 +31,8 @@ func TestTCPInput(t *testing.T) {
 	})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 	plugins.All = append(plugins.All, input, output)
 
@@ -116,8 +116,8 @@ func TestTCPInputSecure(t *testing.T) {
 	})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 	plugins.All = append(plugins.All, input, output)
 

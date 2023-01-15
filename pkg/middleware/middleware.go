@@ -83,7 +83,7 @@ func NewMiddleware(command string, config *MiddlewareConfig) *Middleware {
 }
 
 // ReadFrom start a worker to read from this plugin
-func (m *Middleware) ReadFrom(plugin plugin.PluginReader) {
+func (m *Middleware) ReadFrom(plugin plugin.Reader) {
 	if log.Logger.GetLevel() == zerolog.DebugLevel {
 		log.Debug().Msgf("command[%q] Starting reading from %q", m.Command, plugin)
 	}
@@ -91,7 +91,7 @@ func (m *Middleware) ReadFrom(plugin plugin.PluginReader) {
 	go m.copy(m.Stdin, plugin)
 }
 
-func (m *Middleware) copy(to io.Writer, from plugin.PluginReader) {
+func (m *Middleware) copy(to io.Writer, from plugin.Reader) {
 	var buf, dst []byte
 
 	for {

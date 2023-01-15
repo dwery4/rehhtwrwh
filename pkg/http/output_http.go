@@ -86,7 +86,7 @@ type HTTPOutput struct {
 
 // NewHTTPOutput constructor for HTTPOutput
 // Initialize workers
-func NewHTTPOutput(address string, config *HTTPOutputConfig) plugin.PluginReadWriter {
+func NewHTTPOutput(address string, config *HTTPOutputConfig) plugin.ReadWriter {
 	o := new(HTTPOutput)
 	var err error
 	newConfig := config.Copy()

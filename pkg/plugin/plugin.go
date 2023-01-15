@@ -15,28 +15,29 @@ type Message struct {
 	Data []byte // actual data
 }
 
-// PluginReader is an interface for input plugins
-type PluginReader interface {
+// Reader is an interface for input plugins
+type Reader interface {
 	PluginRead() (msg *Message, err error)
 }
 
-// PluginWriter is an interface for output plugins
-type PluginWriter interface {
+// Writer is an interface for output plugins
+type Writer interface {
 	PluginWrite(msg *Message) (n int, err error)
 }
 
-// PluginLimited is an interface for plugins that support limiting
-type PluginLimited interface {
+// Limited is an interface for plugins that support limiting
+type Limited interface {
 	Limited() bool
 	SetLimit(float64)
 }
 
-// PluginReadWriter is an interface for plugins that support reading and writing
-type PluginReadWriter interface {
-	PluginReader
-	PluginWriter
+// ReadWriter is an interface for plugins that support reading and writing
+type ReadWriter interface {
+	Reader
+	Writer
 }
 
+// Response is a response from a plugin
 type Response struct {
 	Payload       []byte
 	UUID          []byte
@@ -58,8 +59,8 @@ func extractLimitOptions(options string) (string, string) {
 
 // InOutPlugins struct for holding references to plugins
 type InOutPlugins struct {
-	Inputs  []PluginReader
-	Outputs []PluginWriter
+	Inputs  []Reader
+	Outputs []Writer
 	All     []interface{}
 }
 
@@ -92,11 +93,11 @@ func (plugins *InOutPlugins) RegisterPlugin(constructor interface{}, options ...
 	}
 
 	// Some of the output can be Readers as well because return responses
-	if r, ok := p.(PluginReader); ok {
+	if r, ok := p.(Reader); ok {
 		plugins.Inputs = append(plugins.Inputs, r)
 	}
 
-	if w, ok := p.(PluginWriter); ok {
+	if w, ok := p.(Writer); ok {
 		plugins.Outputs = append(plugins.Outputs, w)
 	}
 	plugins.All = append(plugins.All, p)

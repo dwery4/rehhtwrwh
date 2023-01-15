@@ -36,8 +36,8 @@ func TestEmitter(t *testing.T) {
 	})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 	plugins.All = append(plugins.All, input, output)
 
@@ -64,8 +64,8 @@ func TestEmitterFiltered(t *testing.T) {
 	})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 	plugins.All = append(plugins.All, input, output)
 
@@ -119,8 +119,8 @@ func TestEmitterSplitRoundRobin(t *testing.T) {
 	})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output1, output2},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output1, output2},
 	}
 
 	emitter := New(&Config{
@@ -160,8 +160,8 @@ func TestEmitterRoundRobin(t *testing.T) {
 	})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output1, output2},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output1, output2},
 	}
 	plugins.All = append(plugins.All, input, output1, output2)
 
@@ -207,8 +207,8 @@ func TestEmitterSplitSession(t *testing.T) {
 	})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output1, output2},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output1, output2},
 	}
 
 	emitter := New(&Config{
@@ -247,8 +247,8 @@ func BenchmarkEmitter(b *testing.B) {
 	})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 	plugins.All = append(plugins.All, input, output)
 
@@ -271,7 +271,7 @@ const tokenModifier = "go run ./examples/middleware/token_modifier.go"
 
 var withDebug = append(syscall.Environ(), "GOR_TEST=1")
 
-func initMiddleware(cmd *exec.Cmd, cancl context.CancelFunc, l plugin.PluginReader, c func(error)) *middleware.Middleware {
+func initMiddleware(cmd *exec.Cmd, cancl context.CancelFunc, l plugin.Reader, c func(error)) *middleware.Middleware {
 	var m middleware.Middleware
 	m.Data = make(chan *plugin.Message, 1000)
 	m.Stop = make(chan bool)
@@ -330,8 +330,8 @@ func TestMiddlewareEarlyClose(t *testing.T) {
 		}
 	})
 	pl := &plugin.InOutPlugins{}
-	pl.Inputs = []plugin.PluginReader{midd, in}
-	pl.Outputs = []plugin.PluginWriter{out}
+	pl.Inputs = []plugin.Reader{midd, in}
+	pl.Outputs = []plugin.Writer{out}
 	pl.All = []interface{}{midd, out, in}
 	e := New()
 	go e.Start(pl)

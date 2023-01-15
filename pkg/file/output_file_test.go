@@ -25,8 +25,8 @@ func TestFileOutput(t *testing.T) {
 	output := NewFileOutput("/tmp/test_requests.gor", &FileOutputConfig{FlushInterval: time.Minute, Append: true})
 
 	plugins := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input},
-		Outputs: []plugin.PluginWriter{output},
+		Inputs:  []plugin.Reader{input},
+		Outputs: []plugin.Writer{output},
 	}
 	plugins.All = append(plugins.All, input, output)
 
@@ -50,8 +50,8 @@ func TestFileOutput(t *testing.T) {
 	})
 
 	plugins2 := &plugin.InOutPlugins{
-		Inputs:  []plugin.PluginReader{input2},
-		Outputs: []plugin.PluginWriter{output2},
+		Inputs:  []plugin.Reader{input2},
+		Outputs: []plugin.Writer{output2},
 	}
 	plugins2.All = append(plugins2.All, input2, output2)
 

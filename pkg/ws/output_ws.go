@@ -43,7 +43,7 @@ type WebSocketOutputConfig struct {
 
 // NewWebSocketOutput constructor for WebSocketOutput
 // Initialize X workers which hold keep-alive connection
-func NewWebSocketOutput(address string, config *WebSocketOutputConfig) plugin.PluginWriter {
+func NewWebSocketOutput(address string, config *WebSocketOutputConfig) plugin.Writer {
 	o := new(WebSocketOutput)
 
 	u, err := url.Parse(address)

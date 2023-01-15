@@ -33,14 +33,14 @@ func parseLimitOptions(options string) (limit int, isPercent bool) {
 
 // NewLimiter constructor for Limiter, accepts plugin and options
 // `options` allow to sprcify relatve or absolute limiting
-func NewLimiter(plugin interface{}, options string) PluginReadWriter {
+func NewLimiter(plugin interface{}, options string) ReadWriter {
 	l := new(Limiter)
 	l.Limit, l.IsPercent = parseLimitOptions(options)
 	l.Plugin = plugin
 	l.currentTime = time.Now().UnixNano()
 
 	// FileInput have its own rate limiting. Unlike other inputs we not just dropping requests, we can slow down or speed up request emittion.
-	if fi, ok := l.Plugin.(PluginLimited); ok && l.IsPercent {
+	if fi, ok := l.Plugin.(Limited); ok && l.IsPercent {
 		fi.SetLimit(float64(l.Limit) / float64(100))
 	}
 
@@ -49,7 +49,7 @@ func NewLimiter(plugin interface{}, options string) PluginReadWriter {
 
 func (l *Limiter) isLimited() bool {
 	// File input have its own limiting algorithm
-	if _, ok := l.Plugin.(PluginLimited); ok && l.IsPercent {
+	if _, ok := l.Plugin.(Limited); ok && l.IsPercent {
 		return false
 	}
 
@@ -76,7 +76,7 @@ func (l *Limiter) PluginWrite(msg *Message) (n int, err error) {
 	if l.isLimited() {
 		return 0, nil
 	}
-	if w, ok := l.Plugin.(PluginWriter); ok {
+	if w, ok := l.Plugin.(Writer); ok {
 		return w.PluginWrite(msg)
 	}
 	// avoid further writing
@@ -85,7 +85,7 @@ func (l *Limiter) PluginWrite(msg *Message) (n int, err error) {
 
 // PluginRead reads message from this plugin
 func (l *Limiter) PluginRead() (msg *Message, err error) {
-	if r, ok := l.Plugin.(PluginReader); ok {
+	if r, ok := l.Plugin.(Reader); ok {
 		msg, err = r.PluginRead()
 	} else {
 		// avoid further reading

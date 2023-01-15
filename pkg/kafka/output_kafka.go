@@ -26,7 +26,7 @@ type KafkaOutput struct {
 const KafkaOutputFrequency = 500
 
 // NewKafkaOutput creates instance of kafka producer client  with TLS config
-func NewKafkaOutput(_ string, config *OutputKafkaConfig, tlsConfig *KafkaTLSConfig) plugin.PluginWriter {
+func NewKafkaOutput(_ string, config *OutputKafkaConfig, tlsConfig *KafkaTLSConfig) plugin.Writer {
 	c := NewKafkaConfig(&config.SASLConfig, tlsConfig)
 
 	var producer sarama.AsyncProducer
