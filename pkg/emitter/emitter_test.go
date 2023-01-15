@@ -41,7 +41,7 @@ func TestEmitter(t *testing.T) {
 	}
 	plugins.All = append(plugins.All, input, output)
 
-	emitter := NewEmitter()
+	emitter := New()
 	go emitter.Start(plugins)
 
 	for i := 0; i < 1000; i++ {
@@ -70,7 +70,7 @@ func TestEmitterFiltered(t *testing.T) {
 	plugins.All = append(plugins.All, input, output)
 
 	methods := http_modifier.HTTPMethods{[]byte("GET")}
-	emitter := NewEmitter(&EmitterConfig{
+	emitter := New(&Config{
 		ModifierConfig: http_modifier.HTTPModifierConfig{Methods: methods},
 	})
 	go emitter.Start(plugins)
@@ -123,7 +123,7 @@ func TestEmitterSplitRoundRobin(t *testing.T) {
 		Outputs: []plugin.PluginWriter{output1, output2},
 	}
 
-	emitter := NewEmitter(&EmitterConfig{
+	emitter := New(&Config{
 		SplitOutput: true,
 	})
 	go emitter.Start(plugins)
@@ -165,7 +165,7 @@ func TestEmitterRoundRobin(t *testing.T) {
 	}
 	plugins.All = append(plugins.All, input, output1, output2)
 
-	emitter := NewEmitter(&EmitterConfig{
+	emitter := New(&Config{
 		SplitOutput: true,
 	})
 	go emitter.Start(plugins)
@@ -211,7 +211,7 @@ func TestEmitterSplitSession(t *testing.T) {
 		Outputs: []plugin.PluginWriter{output1, output2},
 	}
 
-	emitter := NewEmitter(&EmitterConfig{
+	emitter := New(&Config{
 		SplitOutput:          true,
 		RecognizeTCPSessions: true,
 	})
@@ -252,7 +252,7 @@ func BenchmarkEmitter(b *testing.B) {
 	}
 	plugins.All = append(plugins.All, input, output)
 
-	emitter := NewEmitter(&EmitterConfig{})
+	emitter := New(&Config{})
 	go emitter.Start(plugins)
 
 	b.ResetTimer()
@@ -333,7 +333,7 @@ func TestMiddlewareEarlyClose(t *testing.T) {
 	pl.Inputs = []plugin.PluginReader{midd, in}
 	pl.Outputs = []plugin.PluginWriter{out}
 	pl.All = []interface{}{midd, out, in}
-	e := NewEmitter()
+	e := New()
 	go e.Start(pl)
 	for i := 0; i < 5; i++ {
 		in.EmitBytes(body)

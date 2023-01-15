@@ -28,7 +28,7 @@ func TestTCPOutput(t *testing.T) {
 		Outputs: []plugin.PluginWriter{output},
 	}
 
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	go emitter.Start(plugins)
 
 	for i := 0; i < 10; i++ {
@@ -86,7 +86,7 @@ func BenchmarkTCPOutput(b *testing.B) {
 		Outputs: []plugin.PluginWriter{output},
 	}
 
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	// avoid counting above initialization
 	b.ResetTimer()
 	go emitter.Start(plugins)

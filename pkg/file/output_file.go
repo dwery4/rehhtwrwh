@@ -106,6 +106,7 @@ func NewFileOutput(pathTemplate string, config *FileOutputConfig) *FileOutput {
 	return o
 }
 
+// GetFileIndex returns index of file
 func GetFileIndex(name string) int {
 	ext := filepath.Ext(name)
 	withoutExt := strings.TrimSuffix(name, ext)

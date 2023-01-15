@@ -36,7 +36,7 @@ func TestTCPInput(t *testing.T) {
 	}
 	plugins.All = append(plugins.All, input, output)
 
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	go emitter.Start(plugins)
 
 	tcpAddr, err := net.ResolveTCPAddr("tcp", input.listener.Addr().String())
@@ -121,7 +121,7 @@ func TestTCPInputSecure(t *testing.T) {
 	}
 	plugins.All = append(plugins.All, input, output)
 
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	go emitter.Start(plugins)
 
 	conf := &tls.Config{

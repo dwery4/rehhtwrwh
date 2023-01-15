@@ -27,6 +27,7 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+// InputFileConfig contains config of input file
 type InputFileConfig struct {
 	InputFileLoop      bool          `json:"input-file-loop"`
 	InputFileReadDepth int           `json:"input-file-read-depth"`
@@ -296,10 +297,12 @@ func (i *FileInput) init() (err error) {
 	return nil
 }
 
+// Limited enabled custom logic for file input
 func (i *FileInput) Limited() bool {
 	return false
 }
 
+// SetLimit sets limit for this plugin
 func (i *FileInput) SetLimit(limit float64) {
 	i.speedFactor = limit
 }

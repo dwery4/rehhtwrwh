@@ -74,7 +74,7 @@ func TestRAWInputIPv4(t *testing.T) {
 	plugins.All = append(plugins.All, input, output)
 
 	addr := "http://127.0.0.1:" + port
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	defer emitter.Close()
 	go emitter.Start(plugins)
 
@@ -141,7 +141,7 @@ func TestRAWInputNoKeepAlive(t *testing.T) {
 
 	addr := "http://127.0.0.1:" + port
 
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	go emitter.Start(plugins)
 
 	for i := 0; i < 10; i++ {
@@ -203,7 +203,7 @@ func TestRAWInputIPv6(t *testing.T) {
 		Outputs: []plugin.PluginWriter{output},
 	}
 
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	addr := "http://" + originAddr
 	go emitter.Start(plugins)
 	for i := 0; i < 10; i++ {
@@ -268,7 +268,7 @@ func TestInputRAWChunkedEncoding(t *testing.T) {
 	}
 	plugins.All = append(plugins.All, input, httpOutput)
 
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	defer emitter.Close()
 	go emitter.Start(plugins)
 	wg.Add(2)
@@ -341,7 +341,7 @@ func BenchmarkRAWInputWithReplay(b *testing.B) {
 		Outputs: []plugin.PluginWriter{testOutput, httpOutput},
 	}
 
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	go emitter.Start(plugins)
 	addr := "http://" + originAddr
 	b.ResetTimer()

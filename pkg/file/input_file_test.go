@@ -315,7 +315,7 @@ func CreateCaptureFile(requestGenerator *RequestGenerator) *CaptureFile {
 	}
 	plugins.All = append(plugins.All, output, outputFile)
 
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	go emitter.Start(plugins)
 
 	requestGenerator.emit()
@@ -344,7 +344,7 @@ func ReadFromCaptureFile(captureFile *os.File, count int, callback test.WriteCal
 	plugins.All = append(plugins.All, input, output)
 
 	wg.Add(count)
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	go emitter.Start(plugins)
 
 	done := make(chan int, 1)

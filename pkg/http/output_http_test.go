@@ -58,7 +58,7 @@ func TestHTTPOutput(t *testing.T) {
 	}
 	plugins.All = append(plugins.All, input, output, httpOutput)
 
-	emitter := emitter.NewEmitter(&emitter.EmitterConfig{
+	emitter := emitter.New(&emitter.Config{
 		ModifierConfig: modifierConfig,
 	})
 	go emitter.Start(plugins)
@@ -100,7 +100,7 @@ func TestHTTPOutputKeepOriginalHost(t *testing.T) {
 	}
 	plugins.All = append(plugins.All, input, output)
 
-	emitter := emitter.NewEmitter(&emitter.EmitterConfig{
+	emitter := emitter.New(&emitter.Config{
 		ModifierConfig: modifierConfig,
 	})
 	go emitter.Start(plugins)
@@ -129,7 +129,7 @@ func TestHTTPOutputSSL(t *testing.T) {
 	}
 	plugins.All = append(plugins.All, input, output)
 
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	go emitter.Start(plugins)
 
 	wg.Add(2)
@@ -161,7 +161,7 @@ func TestHTTPOutputSessions(t *testing.T) {
 		Outputs: []plugin.PluginWriter{output},
 	}
 	plugins.All = append(plugins.All, input, output)
-	emitter := emitter.NewEmitter(&emitter.EmitterConfig{
+	emitter := emitter.New(&emitter.Config{
 		RecognizeTCPSessions: true,
 		SplitOutput:          true,
 	})
@@ -204,7 +204,7 @@ func BenchmarkHTTPOutput(b *testing.B) {
 	}
 	plugins.All = append(plugins.All, input, output)
 
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	go emitter.Start(plugins)
 
 	for i := 0; i < b.N; i++ {
@@ -233,7 +233,7 @@ func BenchmarkHTTPOutputTLS(b *testing.B) {
 	}
 	plugins.All = append(plugins.All, input, output)
 
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	go emitter.Start(plugins)
 
 	for i := 0; i < b.N; i++ {

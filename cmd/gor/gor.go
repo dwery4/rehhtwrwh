@@ -33,6 +33,7 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+// Settings used for quick access to CLI flags
 var Settings = settings.Get()
 
 // NewPlugins specify and initialize all available plugins
@@ -212,7 +213,7 @@ func main() {
 	}
 
 	closeCh := make(chan int)
-	emitter := emitter.NewEmitter(&settings.Settings.EmitterConfig)
+	emitter := emitter.New(&settings.Settings.EmitterConfig)
 	go emitter.Start(plugins)
 	if settings.Settings.ExitAfter > 0 {
 		log.Printf("Running gor for a duration of %s\n", settings.Settings.ExitAfter)

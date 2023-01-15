@@ -110,7 +110,7 @@ type AppSettings struct {
 	OutputHTTP []string `json:"output-http"`
 
 	OutputHTTPConfig http.HTTPOutputConfig
-	EmitterConfig    emitter.EmitterConfig
+	EmitterConfig    emitter.Config
 
 	OutputBinary       []string `json:"output-binary"`
 	OutputBinaryConfig binary.BinaryOutputConfig

@@ -28,7 +28,7 @@ func TestHTTPInput(t *testing.T) {
 	}
 	plugins.All = append(plugins.All, input, output)
 
-	emitter := emitter.NewEmitter(&emitter.EmitterConfig{})
+	emitter := emitter.New(&emitter.Config{})
 	go emitter.Start(plugins)
 
 	address := strings.Replace(input.address, "[::]", "127.0.0.1", -1)
@@ -62,7 +62,7 @@ func TestInputHTTPLargePayload(t *testing.T) {
 	}
 	plugins.All = append(plugins.All, input, output)
 
-	emitter := emitter.NewEmitter()
+	emitter := emitter.New()
 	defer emitter.Close()
 	go emitter.Start(plugins)
 

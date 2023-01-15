@@ -23,10 +23,11 @@ import (
 type Emitter struct {
 	sync.WaitGroup
 	plugins *plugin.InOutPlugins
-	config  *EmitterConfig
+	config  *Config
 }
 
-type EmitterConfig struct {
+// EmitterConfig represents configuration for Emitter
+type Config struct {
 	CopyBufferSize       size.Size `json:"copy-buffer-size"`
 	Middleware           string    `json:"middleware"`
 	ModifierConfig       http_modifier.HTTPModifierConfig
@@ -35,9 +36,9 @@ type EmitterConfig struct {
 	RecognizeTCPSessions bool `json:"recognize-tcp-sessions"`
 }
 
-// NewEmitter creates and initializes new Emitter object.
-func NewEmitter(configs ...*EmitterConfig) *Emitter {
-	config := &EmitterConfig{}
+// New creates and initializes new Emitter object.
+func New(configs ...*Config) *Emitter {
+	config := &Config{}
 	if len(configs) > 0 {
 		config = configs[0]
 	}

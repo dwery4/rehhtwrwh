@@ -30,7 +30,7 @@ func TestFileOutput(t *testing.T) {
 	}
 	plugins.All = append(plugins.All, input, output)
 
-	em := emitter.NewEmitter()
+	em := emitter.New()
 	go em.Start(plugins)
 
 	for i := 0; i < 100; i++ {
@@ -55,7 +55,7 @@ func TestFileOutput(t *testing.T) {
 	}
 	plugins2.All = append(plugins2.All, input2, output2)
 
-	em2 := emitter.NewEmitter()
+	em2 := emitter.New()
 	go em2.Start(plugins2)
 
 	wg.Wait()
