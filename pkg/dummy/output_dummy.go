@@ -21,14 +21,13 @@ func NewDummyOutput() (di *DummyOutput) {
 // PluginWrite writes message to this plugin
 func (i *DummyOutput) PluginWrite(msg *plugin.Message) (int, error) {
 	var n, nn int
-	var err error
-	n, err = os.Stdout.Write(msg.Meta)
-	nn, err = os.Stdout.Write(msg.Data)
+	n, _ = os.Stdout.Write(msg.Meta)
+	nn, _ = os.Stdout.Write(msg.Data)
 	n += nn
-	nn, err = os.Stdout.Write(proto.PayloadSeparatorAsBytes)
+	nn, _ = os.Stdout.Write(proto.PayloadSeparatorAsBytes)
 	n += nn
 
-	return n, err
+	return n, nil
 }
 
 func (i *DummyOutput) String() string {
