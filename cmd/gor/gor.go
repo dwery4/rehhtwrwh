@@ -34,7 +34,7 @@ import (
 )
 
 // Settings used for quick access to CLI flags
-var Settings = settings.Get()
+var Settings = settings.Settings
 
 // NewPlugins specify and initialize all available plugins
 func NewPlugins() *plugin.InOutPlugins {

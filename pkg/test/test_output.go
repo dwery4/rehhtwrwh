@@ -2,6 +2,7 @@ package test
 
 import "github.com/buger/goreplay/pkg/plugin"
 
+// WriteCallback callback for TestOutput
 type WriteCallback func(*plugin.Message)
 
 // TestOutput used in testing to intercept any output into callback

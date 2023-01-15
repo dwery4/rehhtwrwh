@@ -128,7 +128,7 @@ func NewHTTPOutput(address string, config *HTTPOutputConfig) plugin.PluginReadWr
 	o.config = newConfig
 	o.stop = make(chan bool)
 	if o.config.Stats {
-		o.queueStats = stats.NewStats("output_http", o.config.StatsMs)
+		o.queueStats = stats.New("output_http", o.config.StatsMs)
 	}
 
 	o.queue = make(chan *plugin.Message, o.config.QueueLen)

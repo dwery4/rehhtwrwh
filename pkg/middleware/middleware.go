@@ -33,6 +33,7 @@ type Middleware struct {
 	mu            sync.RWMutex
 }
 
+// MiddlewareConfig represents a middleware configuration
 type MiddlewareConfig struct {
 	PrettifyHTTP bool
 }
@@ -124,6 +125,7 @@ func (m *Middleware) copy(to io.Writer, from plugin.PluginReader) {
 	}
 }
 
+// Read reads from this plugin
 func (m *Middleware) Read(from io.Reader) {
 	reader := bufio.NewReader(from)
 	var line []byte

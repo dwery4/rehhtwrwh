@@ -26,7 +26,7 @@ type Emitter struct {
 	config  *Config
 }
 
-// EmitterConfig represents configuration for Emitter
+// Config represents configuration for Emitter
 type Config struct {
 	CopyBufferSize       size.Size `json:"copy-buffer-size"`
 	Middleware           string    `json:"middleware"`

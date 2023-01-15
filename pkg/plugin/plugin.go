@@ -63,7 +63,7 @@ type InOutPlugins struct {
 	All     []interface{}
 }
 
-// Automatically detects type of plugin and initialize it
+// RegisterPlugin automatically detects type of plugin and initialize it
 //
 // See this article if curious about reflect stuff below: http://blog.burntsushi.net/type-parametric-functions-golang
 func (plugins *InOutPlugins) RegisterPlugin(constructor interface{}, options ...interface{}) {

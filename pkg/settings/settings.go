@@ -297,10 +297,7 @@ func CheckSettings() {
 	}
 }
 
-func Get() AppSettings {
-	return Settings
-}
-
+// Set sets the global settings
 func Set(s AppSettings) {
 	Settings = s
 }

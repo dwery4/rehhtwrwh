@@ -8,6 +8,7 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+// Stats is a struct that holds the stats for a given statName
 type Stats struct {
 	statName string
 	rateMs   int
@@ -17,7 +18,8 @@ type Stats struct {
 	count    int
 }
 
-func NewStats(statName string, rateMs int) (s *Stats) {
+// New creates a new Stats struct
+func New(statName string, rateMs int) (s *Stats) {
 	s = new(Stats)
 	s.statName = statName
 	s.rateMs = rateMs
@@ -42,6 +44,7 @@ func (s *Stats) Write(latest int) {
 	s.count = s.count + 1
 }
 
+// Reset resets the stats
 func (s *Stats) Reset() {
 	s.latest = 0
 	s.max = 0
