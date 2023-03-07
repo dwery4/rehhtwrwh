@@ -13,6 +13,8 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+var logger = log.With().Str("component", "elasticsearch").Logger()
+
 type ESUriErorr struct{}
 
 func (e *ESUriErorr) Error() string {
@@ -89,7 +91,7 @@ func (p *ESPlugin) Init(URI string) {
 	err, p.Index = parseURI(URI)
 
 	if err != nil {
-		log.Fatal().Err(err).Msg("[ES] Can't initialize ElasticSearch plugin.")
+		logger.Fatal().Err(err).Msg("Can't initialize ElasticSearch plugin.")
 	}
 
 	p.eConn = elastigo.NewConn()
@@ -102,7 +104,7 @@ func (p *ESPlugin) Init(URI string) {
 
 	go p.ErrorHandler()
 
-	log.Info().Msg("[ES] Initialized Elasticsearch Plugin")
+	logger.Info().Msg("Initialized Elasticsearch Plugin")
 	return
 }
 
@@ -114,7 +116,7 @@ func (p *ESPlugin) IndexerShutdown() {
 func (p *ESPlugin) ErrorHandler() {
 	for {
 		errBuf := <-p.indexor.ErrorChannel
-		log.Error().Err(errBuf.Err).Msg("[ES] Error indexing document")
+		logger.Error().Err(errBuf.Err).Msg("Error indexing document")
 	}
 }
 
@@ -161,7 +163,7 @@ func (p *ESPlugin) ResponseAnalyze(req, resp []byte, start, stop time.Time) {
 
 	j, err := json.Marshal(&esResp)
 	if err != nil {
-		log.Error().Err(err).Msg("[ES] Error marshaling ESRequestResponse")
+		logger.Error().Err(err).Msg("Error marshaling ESRequestResponse")
 	} else {
 		p.indexor.Index(p.Index, "RequestResponse", "", "", "", &t, j)
 	}

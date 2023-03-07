@@ -19,6 +19,8 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+var s3Logger = log.With().Str("component", "s3").Logger()
+
 // S3Output output plugin
 type S3Output struct {
 	pathTemplate string
@@ -32,7 +34,7 @@ type S3Output struct {
 // NewS3Output constructor for FileOutput, accepts path
 func NewS3Output(pathTemplate string, config *FileOutputConfig) *S3Output {
 	if !pro.PRO {
-		log.Fatal().Msg("Using S3 output and input requires PRO license")
+		s3Logger.Fatal().Msg("Using S3 output and input requires PRO license")
 		return nil
 	}
 
@@ -66,7 +68,7 @@ func NewS3Output(pathTemplate string, config *FileOutputConfig) *S3Output {
 func (o *S3Output) connect() {
 	if o.session == nil {
 		o.session = session.Must(session.NewSession(awsConfig()))
-		log.Info().Msg("[S3 Output] S3 connection successfully initialized")
+		s3Logger.Info().Msg("[S3 Output] S3 connection successfully initialized")
 	}
 }
 
@@ -113,7 +115,7 @@ func (o *S3Output) onBufferUpdate(path string) {
 
 	file, err := os.Open(path)
 	if err != nil {
-		log.Error().Err(err).Msgf("[S3 Output] Failed to open file %q", path)
+		s3Logger.Error().Err(err).Msgf("[S3 Output] Failed to open file %q", path)
 		return
 	}
 	defer os.Remove(path)
@@ -124,7 +126,7 @@ func (o *S3Output) onBufferUpdate(path string) {
 		Key:    aws.String(key),
 	})
 	if err != nil {
-		log.Error().Err(err).Msgf("[S3 Output] Failed to upload data to %q/%q", bucket, key)
+		s3Logger.Error().Err(err).Msgf("[S3 Output] Failed to upload data to %q/%q", bucket, key)
 		return
 	}
 

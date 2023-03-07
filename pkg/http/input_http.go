@@ -1,7 +1,6 @@
 package http
 
 import (
-	"log"
 	"net"
 	"net/http"
 	"net/http/httputil"
@@ -9,7 +8,11 @@ import (
 
 	"github.com/buger/goreplay/pkg/plugin"
 	"github.com/buger/goreplay/pkg/proto"
+
+	"github.com/rs/zerolog/log"
 )
+
+var inputLogger = log.With().Str("component", "input_http").Logger()
 
 // HTTPInput used for sending requests to Gor via http
 type HTTPInput struct {
@@ -67,14 +70,14 @@ func (i *HTTPInput) listen(address string) {
 
 	i.listener, err = net.Listen("tcp", address)
 	if err != nil {
-		log.Fatal("HTTP input listener failure:", err)
+		inputLogger.Fatal().Err(err).Msg("HTTP input listener failure")
 	}
 	i.address = i.listener.Addr().String()
 
 	go func() {
 		err = http.Serve(i.listener, mux)
 		if err != nil && err != http.ErrServerClosed {
-			log.Fatal("HTTP input serve failure ", err)
+			inputLogger.Fatal().Err(err).Msg("HTTP input serve failure")
 		}
 	}()
 }

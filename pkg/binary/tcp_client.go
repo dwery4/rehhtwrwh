@@ -6,8 +6,6 @@ import (
 	"net"
 	"syscall"
 	"time"
-
-	"github.com/rs/zerolog/log"
 )
 
 const (
@@ -77,7 +75,7 @@ func (c *TCPClient) Disconnect() {
 		c.conn.Close()
 		c.conn = nil
 
-		log.Warn().Msgf("Disconnected: %s", c.baseURL)
+		outputLogger.Warn().Msgf("Disconnected: %s", c.baseURL)
 	}
 }
 
@@ -91,10 +89,10 @@ func (c *TCPClient) isAlive() bool {
 	if err == nil {
 		return true
 	} else if err == io.EOF {
-		log.Warn().Msg("connection closed, reconnecting")
+		outputLogger.Warn().Msg("connection closed, reconnecting")
 		return false
 	} else if err == syscall.EPIPE {
-		log.Warn().Msg("broken pipe, reconnecting")
+		outputLogger.Warn().Msg("broken pipe, reconnecting")
 		return false
 	}
 
@@ -106,18 +104,18 @@ func (c *TCPClient) Send(data []byte) (response []byte, err error) {
 	// Don't exit on panic
 	defer func() {
 		if r := recover(); r != nil {
-			log.Error().Msgf("PANIC: pkg: %v", r)
+			outputLogger.Error().Msgf("PANIC: pkg: %v", r)
 
 			if _, ok := r.(error); !ok {
-				log.Error().Stack().Msgf("faile to send request: %s", string(data))
+				outputLogger.Error().Stack().Msgf("faile to send request: %s", string(data))
 			}
 		}
 	}()
 
 	if c.conn == nil || !c.isAlive() {
-		log.Info().Msgf("Connecting: %s", c.baseURL)
+		outputLogger.Info().Msgf("Connecting: %s", c.baseURL)
 		if err = c.Connect(); err != nil {
-			log.Error().Err(err).Msgf("Connection error: %s", c.baseURL)
+			outputLogger.Error().Err(err).Msgf("Connection error: %s", c.baseURL)
 			return
 		}
 	}
@@ -127,11 +125,11 @@ func (c *TCPClient) Send(data []byte) (response []byte, err error) {
 	c.conn.SetWriteDeadline(timeout)
 
 	if c.config.Debug {
-		log.Debug().Msgf("Sending: %s", string(data))
+		outputLogger.Debug().Msgf("Sending: %s", string(data))
 	}
 
 	if _, err = c.conn.Write(data); err != nil {
-		log.Error().Err(err).Msgf("Write error: %s", c.baseURL)
+		outputLogger.Error().Err(err).Msgf("Write error: %s", c.baseURL)
 		return
 	}
 
@@ -162,7 +160,7 @@ func (c *TCPClient) Send(data []byte) (response []byte, err error) {
 			if err == io.EOF {
 				break
 			} else if err != nil {
-				log.Error().Err(err).Msgf("Read error: %s", c.baseURL)
+				outputLogger.Error().Err(err).Msgf("Read error: %s", c.baseURL)
 				break
 			}
 
@@ -170,7 +168,7 @@ func (c *TCPClient) Send(data []byte) (response []byte, err error) {
 		}
 
 		if readBytes >= maxResponseSize {
-			log.Error().Msgf("Body is more than the max size: %d", maxResponseSize)
+			outputLogger.Error().Msgf("Body is more than the max size: %d", maxResponseSize)
 			break
 		}
 
@@ -179,7 +177,7 @@ func (c *TCPClient) Send(data []byte) (response []byte, err error) {
 	}
 
 	if err != nil {
-		log.Error().Err(err).Msgf("Response read error")
+		outputLogger.Error().Err(err).Msgf("Response read error")
 		return
 	}
 
@@ -191,7 +189,7 @@ func (c *TCPClient) Send(data []byte) (response []byte, err error) {
 	copy(payload, c.respBuf[:readBytes])
 
 	if c.config.Debug {
-		log.Debug().Msgf("Received: %s", string(payload))
+		outputLogger.Debug().Msgf("Received: %s", string(payload))
 	}
 
 	return payload, err

@@ -4,6 +4,7 @@ package pro
 // it must not be modified explicitly in production
 var PRO = false
 
+// Enable enables PRO mode. Can be used ony in tests.
 func Enable() {
 	PRO = true
 }

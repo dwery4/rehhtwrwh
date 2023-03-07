@@ -19,6 +19,8 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+var logger = log.With().Str("component", "emitter").Logger()
+
 // Emitter represents an abject to manage plugins communication
 type Emitter struct {
 	sync.WaitGroup
@@ -68,7 +70,7 @@ func (e *Emitter) Start(plugins *plugin.InOutPlugins) {
 		go func() {
 			defer e.Done()
 			if err := e.CopyMulty(middleware, plugins.Outputs...); err != nil {
-				log.Error().Err(err).Msg("error during copy")
+				logger.Error().Err(err).Msg("error during copy")
 			}
 		}()
 	} else {
@@ -77,7 +79,7 @@ func (e *Emitter) Start(plugins *plugin.InOutPlugins) {
 			go func(in plugin.Reader) {
 				defer e.Done()
 				if err := e.CopyMulty(in, plugins.Outputs...); err != nil {
-					log.Error().Err(err).Msg("error during copy")
+					logger.Error().Err(err).Msg("error during copy")
 				}
 			}(in)
 		}
@@ -118,16 +120,16 @@ func (e *Emitter) CopyMulty(src plugin.Reader, writers ...plugin.Writer) error {
 			}
 			meta := proto.PayloadMeta(msg.Meta)
 			if len(meta) < 3 {
-				log.Warn().Msgf("[EMITTER] Found malformed record %q from %q", msg.Meta, src)
+				logger.Warn().Msgf("Found malformed record %q from %q", msg.Meta, src)
 				continue
 			}
 			requestID := meta[1]
 			// start a subroutine only when necessary
 			if log.Logger.GetLevel() == zerolog.DebugLevel {
-				log.Debug().Msgf("[EMITTER] input: %s from: %s", byteutils.SliceToString(msg.Meta[:len(msg.Meta)-1]), src)
+				logger.Debug().Msgf("input: %s from: %s", byteutils.SliceToString(msg.Meta[:len(msg.Meta)-1]), src)
 			}
 			if modifier != nil {
-				log.Debug().Msgf("[EMITTER] modifier: %s from: %s", requestID, src)
+				logger.Debug().Msgf("modifier: %s from: %s", requestID, src)
 				if proto.IsRequestPayload(msg.Meta) {
 					msg.Data = modifier.Rewrite(msg.Data)
 					// If modifier tells to skip request
@@ -135,7 +137,7 @@ func (e *Emitter) CopyMulty(src plugin.Reader, writers ...plugin.Writer) error {
 						filteredRequests.Set(requestID, []byte{}, 60) //
 						continue
 					}
-					log.Debug().Msgf("[EMITTER] Rewritten input: %s from: %s", requestID, src)
+					logger.Debug().Msgf("Rewritten input: %s from: %s", requestID, src)
 				} else {
 					_, err := filteredRequests.Get(requestID)
 					if err == nil {
@@ -155,7 +157,7 @@ func (e *Emitter) CopyMulty(src plugin.Reader, writers ...plugin.Writer) error {
 			if e.config.SplitOutput {
 				if e.config.RecognizeTCPSessions {
 					if !pro.PRO {
-						log.Fatal().Msg("Detailed TCP sessions work only with PRO license")
+						logger.Fatal().Msg("Detailed TCP sessions work only with PRO license")
 					}
 					hasher := fnv.New32a()
 					hasher.Write(meta[1])

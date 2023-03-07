@@ -27,6 +27,8 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+var inputLogger = log.With().Str("component", "input_file").Logger()
+
 // InputFileConfig contains config of input file
 type InputFileConfig struct {
 	InputFileLoop      bool          `json:"input-file-loop"`
@@ -92,7 +94,7 @@ func (f *fileInputReader) parse(init chan struct{}) error {
 
 		if err != nil {
 			if err != io.EOF {
-				log.Logger.Error().Err(err).Msg("Error reading file")
+				inputLogger.Error().Err(err).Msg("Error reading file")
 			}
 
 			f.Close()
@@ -110,7 +112,7 @@ func (f *fileInputReader) parse(init chan struct{}) error {
 			meta := proto.PayloadMeta(asBytes)
 
 			if len(meta) < 3 {
-				log.Warn().Msgf("Found malformed record, file: %s, line %d", f.path, lineNum)
+				inputLogger.Warn().Msgf("Found malformed record, file: %s, line %d", f.path, lineNum)
 				buffer = bytes.Buffer{}
 				continue
 			}
@@ -187,7 +189,7 @@ func newFileInputReader(path string, readDepth int, dryRun bool) *fileInputReade
 	}
 
 	if err != nil {
-		log.Error().Err(err).Msg("Error opening file")
+		inputLogger.Error().Err(err).Msg("Error opening file")
 		return nil
 	}
 
@@ -195,7 +197,7 @@ func newFileInputReader(path string, readDepth int, dryRun bool) *fileInputReade
 	if strings.HasSuffix(path, ".gz") {
 		gzReader, err := gzip.NewReader(file)
 		if err != nil {
-			log.Error().Err(err).Msg("Error opening compressed file")
+			inputLogger.Error().Err(err).Msg("Error opening compressed file")
 			return nil
 		}
 		r.reader = bufio.NewReader(gzReader)
@@ -269,7 +271,7 @@ func (i *FileInput) init() (err error) {
 
 		resp, err := svc.ListObjects(params)
 		if err != nil {
-			log.Error().Err(err).Msgf("Error while retrieving list of files from S3: %s", i.path)
+			inputLogger.Error().Err(err).Msgf("Error while retrieving list of files from S3: %s", i.path)
 			return err
 		}
 
@@ -277,12 +279,12 @@ func (i *FileInput) init() (err error) {
 			matches = append(matches, "s3://"+bucket+"/"+(*c.Key))
 		}
 	} else if matches, err = filepath.Glob(i.path); err != nil {
-		log.Error().Err(err).Msgf("Error while retrieving list of files: %s", i.path)
+		inputLogger.Error().Err(err).Msgf("Error while retrieving list of files: %s", i.path)
 		return
 	}
 
 	if len(matches) == 0 {
-		log.Error().Msgf("No files match pattern: %s", i.path)
+		inputLogger.Error().Msgf("No files match pattern: %s", i.path)
 		return errors.New("no matching files")
 	}
 
@@ -432,7 +434,7 @@ func (i *FileInput) emit() {
 	i.stats.Set("max_wait", time.Duration(maxWait))
 	i.stats.Set("min_wait", time.Duration(minWait))
 
-	log.Info().Msgf("FileInput: end of file '%s'", i.path)
+	inputLogger.Info().Msgf("FileInput: end of file '%s'", i.path)
 
 	if i.dryRun {
 		fmt.Printf("Records found: %v\nFiles processed: %v\nBytes processed: %v\nMax wait: %v\nMin wait: %v\nFirst wait: %v\nIt will take `%v` to replay at current speed.\nFound %v records with out of order timestamp\n",

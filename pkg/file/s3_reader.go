@@ -11,8 +11,6 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/buger/goreplay/pkg/pro"
-
-	"github.com/rs/zerolog/log"
 )
 
 // S3ReadCloser ...
@@ -39,10 +37,10 @@ func awsConfig() *aws.Config {
 
 	if endpoint := os.Getenv("AWS_ENDPOINT_URL"); endpoint != "" {
 		config.Endpoint = aws.String(endpoint)
-		log.Debug().Msgf("Custom endpoint: %s", endpoint)
+		s3Logger.Debug().Msgf("Custom endpoint: %s", endpoint)
 	}
 
-	log.Debug().Msgf("Connecting to S3. Region: %s", region)
+	s3Logger.Debug().Msgf("Connecting to S3. Region: %s", region)
 
 	config.CredentialsChainVerboseErrors = aws.Bool(true)
 
@@ -56,14 +54,14 @@ func awsConfig() *aws.Config {
 // NewS3ReadCloser returns new instance of S3 read closer
 func NewS3ReadCloser(path string) *S3ReadCloser {
 	if !pro.PRO {
-		log.Fatal().Msg("Using S3 input and output require PRO license")
+		s3Logger.Fatal().Msg("Using S3 input and output require PRO license")
 		return nil
 	}
 
 	bucket, key := parseS3Url(path)
 	sess := session.Must(session.NewSession(awsConfig()))
 
-	log.Info().Msgf("S3 connection successfully initialized %v", path)
+	s3Logger.Info().Msgf("S3 connection successfully initialized %v", path)
 
 	return &S3ReadCloser{
 		bucket: bucket,
@@ -90,7 +88,7 @@ func (s *S3ReadCloser) Read(b []byte) (n int, e error) {
 		resp, err := svc.GetObject(params)
 
 		if err != nil {
-			log.Error().Err(err).Msgf("Error during getting file %s %s", s.bucket, s.key)
+			s3Logger.Error().Err(err).Msgf("Error during getting file %s %s", s.bucket, s.key)
 		} else {
 			s.totalSize, _ = strconv.Atoi(strings.Split(*resp.ContentRange, "/")[1])
 			s.buf.ReadFrom(resp.Body)

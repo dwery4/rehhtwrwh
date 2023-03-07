@@ -15,6 +15,8 @@ const (
 	initialDynamicWorkers = 10
 )
 
+var outputLogger = log.With().Str("component", "output_binary").Logger()
+
 // BinaryOutputConfig struct for holding binary output configuration
 type BinaryOutputConfig struct {
 	Workers        int           `json:"output-binary-workers"`
@@ -162,7 +164,7 @@ func (o *BinaryOutput) sendRequest(client *TCPClient, msg *plugin.Message) {
 	stop := time.Now()
 
 	if err != nil {
-		log.Error().Err(err).Msg("Request error")
+		outputLogger.Error().Err(err).Msg("Request error")
 	}
 
 	if o.config.TrackResponses {

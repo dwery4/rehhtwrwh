@@ -21,6 +21,8 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+var outputLogger = log.With().Str("component", "output_http").Logger()
+
 const (
 	readChunkSize = 64 * 1024
 )
@@ -92,7 +94,7 @@ func NewHTTPOutput(address string, config *HTTPOutputConfig) plugin.ReadWriter {
 	newConfig := config.Copy()
 	newConfig.url, err = url.Parse(address)
 	if err != nil {
-		log.Fatal().Msg(fmt.Sprintf("[OUTPUT-HTTP] parse HTTP output URL error[%q]", err))
+		outputLogger.Fatal().Msg(fmt.Sprintf("[OUTPUT-HTTP] parse HTTP output URL error[%q]", err))
 	}
 	if newConfig.url.Scheme == "" {
 		newConfig.url.Scheme = "http"
@@ -244,7 +246,7 @@ func (o *HTTPOutput) sendRequest(client *HTTPClient, msg *plugin.Message) {
 	stop := time.Now()
 
 	if err != nil {
-		log.Error().Err(err).Msg("[HTTP-OUTPUT]")
+		outputLogger.Error().Err(err).Msg("[HTTP-OUTPUT]")
 		return
 	}
 	if resp == nil {
@@ -286,12 +288,12 @@ func NewHTTPClient(config *HTTPOutputConfig) *HTTPClient {
 		Timeout: client.config.Timeout,
 		CheckRedirect: func(req *http.Request, via []*http.Request) error {
 			if len(via) >= client.config.RedirectLimit {
-				log.Warn().Msgf("[HTTPCLIENT] maximum output-http-redirects[%d] reached!", client.config.RedirectLimit)
+				outputLogger.Warn().Msgf("[HTTPCLIENT] maximum output-http-redirects[%d] reached!", client.config.RedirectLimit)
 				return http.ErrUseLastResponse
 			}
 			lastReq := via[len(via)-1]
 			resp := req.Response
-			log.Info().Msgf("[HTTPCLIENT] HTTP redirects from %q to %q with %q", lastReq.Host, req.Host, resp.Status)
+			outputLogger.Info().Msgf("[HTTPCLIENT] HTTP redirects from %q to %q with %q", lastReq.Host, req.Host, resp.Status)
 			return nil
 		},
 	}

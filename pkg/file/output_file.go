@@ -22,6 +22,7 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+var outputLogger = log.With().Str("component", "output_file").Logger()
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 var instanceID string
 
@@ -240,7 +241,7 @@ func (o *FileOutput) PluginWrite(msg *plugin.Message) (n int, err error) {
 		}
 
 		if err != nil {
-			log.Fatal().Err(err).Str("file", o.currentName).Msg("Cannot open file")
+			outputLogger.Fatal().Err(err).Str("file", o.currentName).Msg("Cannot open file")
 		}
 
 		o.QueueLength = 0
@@ -268,7 +269,7 @@ func (o *FileOutput) flush() {
 	// Don't exit on panic
 	defer func() {
 		if r := recover(); r != nil {
-			log.Error().Stack().Msgf("PANIC while file flush: %v", r)
+			outputLogger.Error().Stack().Msgf("PANIC while file flush: %v", r)
 		}
 	}()
 
@@ -285,7 +286,7 @@ func (o *FileOutput) flush() {
 		if stat, err := o.file.Stat(); err == nil {
 			o.currentFileSize = int(stat.Size())
 		} else {
-			log.Error().Err(err).Msgf("Error accessing file size")
+			outputLogger.Error().Err(err).Msgf("Error accessing file size")
 		}
 	}
 }
